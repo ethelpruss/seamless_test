@@ -1,0 +1,157 @@
+{
+  "version": 1,
+  "locale": "en_NL",
+  "platform": "4.4.2",
+  "metadata": {
+    "appmode": "static",
+    "primary_rmd": null,
+    "primary_html": "Lecture 1/Lecture-1.html",
+    "content_category": null,
+    "has_parameters": false
+  },
+  "packages": null,
+  "files": {
+    ".Rprofile": {
+      "checksum": "ebd668865f24bb78fd4a1867ffaf41dd"
+    },
+    "Lecture 1/css/bootstrap.css": {
+      "checksum": "54cbb416d131e9b3b42706489283c754"
+    },
+    "Lecture 1/css/style.css": {
+      "checksum": "25c789397b46f9449350e3b8c07dcb85"
+    },
+    "Lecture 1/images/areaundercurve.png": {
+      "checksum": "223411cd9ccb1fbb543b8f97d9709deb"
+    },
+    "Lecture 1/images/article1.png": {
+      "checksum": "df3a5f5bedf044e58f9c363788ec9009"
+    },
+    "Lecture 1/images/article2.png": {
+      "checksum": "78b83b1cb44936b426c0475714d0821c"
+    },
+    "Lecture 1/images/bayes.png": {
+      "checksum": "ad7acd2622a8f75183c756d718efb8ab"
+    },
+    "Lecture 1/images/BinomialDistribution.png": {
+      "checksum": "4812201fcf1cfd4bdee25f3b0f907068"
+    },
+    "Lecture 1/images/brains.png": {
+      "checksum": "112179ba5cc0e9fc0b2563cbb7dbe505"
+    },
+    "Lecture 1/images/cards.png": {
+      "checksum": "cd027b74f922dc34e838b5e5c5e65472"
+    },
+    "Lecture 1/images/clouds.png": {
+      "checksum": "631035764c2d8c838bf827b8803cb1fc"
+    },
+    "Lecture 1/images/coursemodel.png": {
+      "checksum": "82d52ecbd230e1ab85252b4632f7ca86"
+    },
+    "Lecture 1/images/examgif.gif": {
+      "checksum": "fc855ebee409e94d203b1166c3b197a5"
+    },
+    "Lecture 1/images/exerciseBinomial.png": {
+      "checksum": "279d3de44be1dbe516afaaba4232274d"
+    },
+    "Lecture 1/images/figure9.10.png": {
+      "checksum": "a6815d38211fe4e1bff0129e0936f13b"
+    },
+    "Lecture 1/images/figure9.11.png": {
+      "checksum": "98813e4273d4e146347ce02a4a0fe305"
+    },
+    "Lecture 1/images/figure9.12.png": {
+      "checksum": "3c9dc297880f6eb2b8cc948df29850d4"
+    },
+    "Lecture 1/images/figure9.6.png": {
+      "checksum": "c630a114fb6335adc3381d858c724977"
+    },
+    "Lecture 1/images/figure9.7.png": {
+      "checksum": "293313e344631ce8da070cc0df0b249b"
+    },
+    "Lecture 1/images/foundation.png": {
+      "checksum": "d7ee40b441e02115411afad56da27b55"
+    },
+    "Lecture 1/images/huston.png": {
+      "checksum": "8239668825a1244ea62201c62042aee4"
+    },
+    "Lecture 1/images/jeansgraph.png": {
+      "checksum": "2764490343aabc4e63733ac5603056c5"
+    },
+    "Lecture 1/images/jeanstable.png": {
+      "checksum": "538718e2eeceadc46f8010525a02c952"
+    },
+    "Lecture 1/images/JonatanBook.png": {
+      "checksum": "237e641f2cbe86ccb3cb3968b5cd587c"
+    },
+    "Lecture 1/images/JonatanButner.png": {
+      "checksum": "3fce0caf8cf35b75ba507de3fed1a69d"
+    },
+    "Lecture 1/images/LearnStatistics.png": {
+      "checksum": "cb9b0765ab57c0a05cbb3155bc5617ff"
+    },
+    "Lecture 1/images/lecturetime.png": {
+      "checksum": "4c3f0f083a4968df9fbeb7ad6fdb85c0"
+    },
+    "Lecture 1/images/logo.png": {
+      "checksum": "c784a18f8817b64c372d02d533cd750a"
+    },
+    "Lecture 1/images/moon.png": {
+      "checksum": "0bd4b4250ddea34fb1d976621e94457e"
+    },
+    "Lecture 1/images/normaldistribution.png": {
+      "checksum": "e74988ee36529b41160d34f59ae7c3b5"
+    },
+    "Lecture 1/images/outdoor1.png": {
+      "checksum": "8aa45ddb9a4035b2727c2ec3b014a8c8"
+    },
+    "Lecture 1/images/outdoor2.png": {
+      "checksum": "4bef36b8c87330f4da77cb6090b1f9c8"
+    },
+    "Lecture 1/images/outlinemountain.png": {
+      "checksum": "2f48d72880dd729c0a901033cef83b92"
+    },
+    "Lecture 1/images/probability.png": {
+      "checksum": "e7fc5da63d57b9ac12434372154993ab"
+    },
+    "Lecture 1/images/probabilitybucket.png": {
+      "checksum": "0ab312ac8282c6b999ffab163621d663"
+    },
+    "Lecture 1/images/rstudio.png": {
+      "checksum": "5b47edfacca05a7535273d7c1b9bdc27"
+    },
+    "Lecture 1/images/Silvy.jpg": {
+      "checksum": "70c7dd21a42ae8bda3d075b9650acbe6"
+    },
+    "Lecture 1/images/SteveFiore.jpg": {
+      "checksum": "571c7d7723896c9a76d2d3e51c4572a0"
+    },
+    "Lecture 1/images/syllabus.png": {
+      "checksum": "3bfd1599391daf5dfa13fe7f1400fd61"
+    },
+    "Lecture 1/images/tacos.png": {
+      "checksum": "d6c6ab5164edc8730b64fad8ad163fc9"
+    },
+    "Lecture 1/images/TeamCognition.png": {
+      "checksum": "ad19f6569ed111566ddb821ace6385f6"
+    },
+    "Lecture 1/images/timechart.png": {
+      "checksum": "9368af3b52d54d222e50bbee5665a9e5"
+    },
+    "Lecture 1/Lecture-1.html": {
+      "checksum": "42c2ba58a050358de00183c94a693dde"
+    },
+    "Lecture 1/Lecture 1.Rmd": {
+      "checksum": "b4a0c7eff478cf58505dfb2176b0b18b"
+    },
+    "Lecture 1/student_progress.txt": {
+      "checksum": "ccdde27e4e338ce66d0084aaf2ad3549"
+    },
+    "renv.lock": {
+      "checksum": "d29f260771850554e5d73e65b1fe3ff0"
+    },
+    "seamless_test/app.R": {
+      "checksum": "f2fb11dc47043e010e71656f12c461c0"
+    }
+  },
+  "users": null
+}
