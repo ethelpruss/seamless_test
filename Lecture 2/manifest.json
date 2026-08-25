@@ -87,13 +87,13 @@
       "description": {
         "Package": "MASS",
         "Priority": "recommended",
-        "Version": "7.3-61",
-        "Date": "2024-06-10",
-        "Revision": "$Rev: 3657 $",
-        "Depends": "R (>= 4.4.0), grDevices, graphics, stats, utils",
+        "Version": "7.3-60.0.1",
+        "Date": "2024-01-12",
+        "Revision": "$Rev: 3621 $",
+        "Depends": "R (>= 4.0), grDevices, graphics, stats, utils",
         "Imports": "methods",
         "Suggests": "lattice, nlme, nnet, survival",
-        "Authors@R": "c(person(\"Brian\", \"Ripley\", role = c(\"aut\", \"cre\", \"cph\"),\n                    email = \"ripley@stats.ox.ac.uk\"),\n\t     person(\"Bill\", \"Venables\", role = c(\"aut\", \"cph\")),\n\t     person(c(\"Douglas\", \"M.\"), \"Bates\", role = \"ctb\"),\n\t     person(\"Kurt\", \"Hornik\", role = \"trl\",\n                     comment = \"partial port ca 1998\"),\n\t     person(\"Albrecht\", \"Gebhardt\", role = \"trl\",\n                     comment = \"partial port ca 1998\"),\n\t     person(\"David\", \"Firth\", role = \"ctb\",\n\t            comment = \"support functions for polr\"))",
+        "Authors@R": "c(person(\"Brian\", \"Ripley\", role = c(\"aut\", \"cre\", \"cph\"),\n                    email = \"ripley@stats.ox.ac.uk\"),\n\t     person(\"Bill\", \"Venables\", role = \"ctb\"),\n\t     person(c(\"Douglas\", \"M.\"), \"Bates\", role = \"ctb\"),\n\t     person(\"Kurt\", \"Hornik\", role = \"trl\",\n                     comment = \"partial port ca 1998\"),\n\t     person(\"Albrecht\", \"Gebhardt\", role = \"trl\",\n                     comment = \"partial port ca 1998\"),\n\t     person(\"David\", \"Firth\", role = \"ctb\"))",
         "Description": "Functions and datasets to support Venables and Ripley,\n  \"Modern Applied Statistics with S\" (4th edition, 2002).",
         "Title": "Support Functions and Datasets for Venables and Ripley's MASS",
         "LazyData": "yes",
@@ -102,12 +102,13 @@
         "URL": "http://www.stats.ox.ac.uk/pub/MASS4/",
         "Contact": "<MASS@stats.ox.ac.uk>",
         "NeedsCompilation": "yes",
-        "Packaged": "2024-06-13 08:23:32 UTC; ripley",
-        "Author": "Brian Ripley [aut, cre, cph],\n  Bill Venables [aut, cph],\n  Douglas M. Bates [ctb],\n  Kurt Hornik [trl] (partial port ca 1998),\n  Albrecht Gebhardt [trl] (partial port ca 1998),\n  David Firth [ctb] (support functions for polr)",
+        "Packaged": "2024-01-13 12:39:26 UTC; ripley",
+        "Author": "Brian Ripley [aut, cre, cph],\n  Bill Venables [ctb],\n  Douglas M. Bates [ctb],\n  Kurt Hornik [trl] (partial port ca 1998),\n  Albrecht Gebhardt [trl] (partial port ca 1998),\n  David Firth [ctb]",
         "Maintainer": "Brian Ripley <ripley@stats.ox.ac.uk>",
-        "Repository": "CRAN",
-        "Date/Publication": "2024-06-13 10:23:32",
-        "Built": "R 4.4.2; x86_64-w64-mingw32; 2024-10-31 16:49:22 UTC; windows",
+        "Repository": "RSPM",
+        "Date/Publication": "2024-01-13 13:36:16 UTC",
+        "Encoding": "UTF-8",
+        "Built": "R 4.4.0; x86_64-w64-mingw32; 2024-04-25 19:44:49 UTC; windows",
         "Archs": "x64"
       }
     },
@@ -4250,13 +4251,13 @@
       "checksum": "bda77b1cdd20c8cdea782471380a4445"
     },
     "Lecture-2.html": {
-      "checksum": "47ac167945146f92986557c84dd3c9d6"
+      "checksum": "996b772a8a224da4a70c2234e1c32d73"
     },
     "Lecture-2.Rmd": {
       "checksum": "dd3d436b2f819d94a524dd16f54eb184"
     },
     "student_progress.txt": {
-      "checksum": "d12e118228781075c6c790917f8aff29"
+      "checksum": "2052649cbc8a0e7663542dc04fe3a0bc"
     }
   },
   "users": null
