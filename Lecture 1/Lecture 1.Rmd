@@ -89,17 +89,23 @@ new_recorder <- function(tutorial_id, tutorial_version, user_id, event, data) {
   cat(user_id, ", ", event, ",", data$label, ", ", data$answer, ", ", data$correct, "\n",
       sep = "", file = "student_progress.txt", append = TRUE)
 
-  ## Only write to database when enabled and connected
-  if (use_database && !is.null(conn)) {
+  ## Only write to database for events that actually have a label (quiz/exercise
+  ## events). learnr also fires housekeeping events like "session_start" and
+  ## "section_skipped" with no label/question/answer/correct, which would
+  ## otherwise violate the NOT NULL constraint on "label" and crash the session.
+  if (use_database && !is.null(conn) && !is.null(data$label) && nzchar(data$label)) {
     d_tibble <- tibble::tibble(
       user_id  = user_id,
       event = event,
       label = data$label,
-      correct = data$correct,
-      question = data$question,
-      answer = data$answer
+      correct = if (is.null(data$correct)) NA else data$correct,
+      question = if (is.null(data$question)) NA_character_ else data$question,
+      answer = if (is.null(data$answer)) NA_character_ else data$answer
     )
-    DBI::dbWriteTable(conn, DBI::Id(schema = "public", table = "statistics2_module1"), d_tibble, append = TRUE, row.names = FALSE)
+    try(
+      DBI::dbWriteTable(conn, DBI::Id(schema = "public", table = "statistics2_module1"), d_tibble, append = TRUE, row.names = FALSE),
+      silent = TRUE
+    )
   }
 }
 
