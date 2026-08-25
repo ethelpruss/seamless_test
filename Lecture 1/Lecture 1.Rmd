@@ -80,7 +80,14 @@ tutorial_options(exercise.eval = FALSE, exercise.checker=FALSE)
 ## recording data
 ## Write rsconnect manifest (safe if rsconnect not installed)
 if (requireNamespace("rsconnect", quietly = TRUE)) {
-  try(rsconnect::writeManifest(), silent = TRUE)
+  ## Write into this Rmd's own folder, not whatever the working directory
+  ## happens to be (e.g. the project root when run from RStudio).
+  manifest_dir <- tryCatch(
+    dirname(knitr::current_input(dir = TRUE)),
+    error = function(e) NA_character_
+  )
+  if (is.na(manifest_dir) || !nzchar(manifest_dir)) manifest_dir <- getwd()
+  try(rsconnect::writeManifest(appDir = manifest_dir), silent = TRUE)
 } else {
   warning("rsconnect not installed; skipping writeManifest()")
   message("rsconnect not installed; skipping writeManifest()")

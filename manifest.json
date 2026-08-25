@@ -12,7 +12,7 @@
   "packages": null,
   "files": {
     ".Rprofile": {
-      "checksum": "ebd668865f24bb78fd4a1867ffaf41dd"
+      "checksum": "124f4371381a530cd0529db0ef2ff0e6"
     },
     "Lecture 1/css/bootstrap.css": {
       "checksum": "54cbb416d131e9b3b42706489283c754"
@@ -141,16 +141,124 @@
       "checksum": "42c2ba58a050358de00183c94a693dde"
     },
     "Lecture 1/Lecture 1.Rmd": {
-      "checksum": "b4a0c7eff478cf58505dfb2176b0b18b"
+      "checksum": "51e2fa41708f9f5af965ea8781ebec0b"
     },
     "Lecture 1/student_progress.txt": {
       "checksum": "ccdde27e4e338ce66d0084aaf2ad3549"
     },
-    "renv.lock": {
-      "checksum": "d29f260771850554e5d73e65b1fe3ff0"
+    "Lecture 2/css/bootstrap.css": {
+      "checksum": "54cbb416d131e9b3b42706489283c754"
     },
-    "seamless_test/app.R": {
-      "checksum": "f2fb11dc47043e010e71656f12c461c0"
+    "Lecture 2/css/style.css": {
+      "checksum": "25c789397b46f9449350e3b8c07dcb85"
+    },
+    "Lecture 2/images/accounting.png": {
+      "checksum": "50dfb9dd058938a9ab258b6c75d2a2f7"
+    },
+    "Lecture 2/images/CIresearch.png": {
+      "checksum": "f6e0246e38e9a6615a41376710375343"
+    },
+    "Lecture 2/images/convenience.png": {
+      "checksum": "aade5ba97c7c20b46b859091b7c621ed"
+    },
+    "Lecture 2/images/diceavg.png": {
+      "checksum": "3dcc4384d8fa7554c2a215cd8aad4b5e"
+    },
+    "Lecture 2/images/ex1.png": {
+      "checksum": "6e8e492bd96956f169447cbc161c5a1d"
+    },
+    "Lecture 2/images/ex2.png": {
+      "checksum": "716dce6e5e3363739f67470f1cc24d3d"
+    },
+    "Lecture 2/images/ex21.png": {
+      "checksum": "22f3264f2b59c8df3248f728c4a0d6d4"
+    },
+    "Lecture 2/images/ex22.png": {
+      "checksum": "a8ccf76d47cc3c925b4b5d47d866d904"
+    },
+    "Lecture 2/images/ex3.png": {
+      "checksum": "b1dd159de980e7168e357003f621ff11"
+    },
+    "Lecture 2/images/ex4.png": {
+      "checksum": "3e9b6fd5c9c026274746860d35276cc2"
+    },
+    "Lecture 2/images/ex41.png": {
+      "checksum": "652a62003d0db3e733d9acdf4693e241"
+    },
+    "Lecture 2/images/ex5.png": {
+      "checksum": "a081cc3d6a136242bd0c18a56a0d0d4c"
+    },
+    "Lecture 2/images/ex51.png": {
+      "checksum": "2777221edce65852ff8df4cda9fa114e"
+    },
+    "Lecture 2/images/ex6.png": {
+      "checksum": "b1d95051cdea78020c0ad7846456954e"
+    },
+    "Lecture 2/images/ex61.png": {
+      "checksum": "18a7160108f9fd2ace840493a94f326c"
+    },
+    "Lecture 2/images/ex7.png": {
+      "checksum": "43e18f1025c46b02a054a350a9dd8740"
+    },
+    "Lecture 2/images/ex8.png": {
+      "checksum": "fd3cb0a625496e0c1a520ee65eae6288"
+    },
+    "Lecture 2/images/figure10.1.png": {
+      "checksum": "ccadf44ba04979854058a48a59dc8064"
+    },
+    "Lecture 2/images/figure10.11.png": {
+      "checksum": "d2f862f4c42321ac40e2fbbafe6840cc"
+    },
+    "Lecture 2/images/figure10.2.png": {
+      "checksum": "303b3d1454285e9023337106fc5b0e57"
+    },
+    "Lecture 2/images/figure10.3.png": {
+      "checksum": "2237e7fbd7ebfbd20cba2037158409a7"
+    },
+    "Lecture 2/images/figure10.5.png": {
+      "checksum": "22f3264f2b59c8df3248f728c4a0d6d4"
+    },
+    "Lecture 2/images/logo.png": {
+      "checksum": "c784a18f8817b64c372d02d533cd750a"
+    },
+    "Lecture 2/images/magnifying.png": {
+      "checksum": "f9961c3fec274d97944e399f49f45885"
+    },
+    "Lecture 2/images/meandistribtuion.png": {
+      "checksum": "a519675cb04bd16879276025cafc6bf7"
+    },
+    "Lecture 2/images/normaldistribution.png": {
+      "checksum": "e568138a7f01c91aeaba2b7a791223a4"
+    },
+    "Lecture 2/images/sampling.png": {
+      "checksum": "a9461e0757d786874614f906c66cd103"
+    },
+    "Lecture 2/images/snowball.png": {
+      "checksum": "53e2ec0d4e7ab88eb2f528ab63c25c90"
+    },
+    "Lecture 2/images/table1.png": {
+      "checksum": "f4e0f815092e882bde419f47bf5fa388"
+    },
+    "Lecture 2/images/table2.png": {
+      "checksum": "95905ab79ddaba2f93dc14040fbf3c5d"
+    },
+    "Lecture 2/images/table3.png": {
+      "checksum": "ababe795e713c1d47357d6eceba09a43"
+    },
+    "Lecture 2/images/table4.png": {
+      "checksum": "bda77b1cdd20c8cdea782471380a4445"
+    },
+    "Lecture 2/Lecture-2.html": {
+      "checksum": "1d329de70477c4f67fe3941c57727e84"
+    },
+    "Lecture 2/Lecture-2.Rmd": {
+      "checksum": "dd3d436b2f819d94a524dd16f54eb184"
+    },
+    "Lecture 2/student_progress.txt": {
+      "checksum": "d12e118228781075c6c790917f8aff29"
+    },
+    "renv.lock": {
+      "checksum": "1e1351b8b351774c02622f137a0eb671"
     }
   },
   "users": null
