@@ -1,10 +1,10 @@
 ## Version notes
-- Renv based on R version 4.4.2 with downgraded packages (MASS to 7.3-60.0.1, Matrix to 1.6-5 and mcgv to 1.9-1)
-- Posit connect version: 4.2.3.
-- Note: check compatibility with 4.2.3 when adding new packages, both for the package itself and dependencies.
+- Renv is based on R version 4.4.2 with downgraded packages (MASS to 7.3-60.0.1, Matrix to 1.6-5 and mcgv to 1.9-1)
+- Posit connect version: 4.2.3 -- source of potential compatibility issues that are currently handled in the renv.
+- Note: Check compatibility with 4.2.3 when adding new packages, both for the package itself and dependencies.
+- Note: Running a lecture .rmd (run document in Rstudio) locally automatically regenerates the mainfest.json file for that lecture; this is how updates/changes in pakcages are recorded. If the local environment is not compatible with the server then keeping the mainfest version in git and discarding local changes to mainfest.json might be a workaround.
 
-
-## Instructions for r environment
+## Instructions for local r environment
 How to get the same r environment:
 
 **1. Open the seamsless_environment via the `.Rproj` file, not by opening a loose `.Rmd`.**  
@@ -27,3 +27,21 @@ This reads `renv.lock` and installs every package at the exact version recorded 
 renv::status()
 
 Should report the project is in sync with the lockfile with no issues.
+
+## Uploading to Posit
+
+https://seamless.uvt.nl/ -> publish - import from Git -> https://github.com/travisjwiltshire/statistics_for_csai_II_cloud/ -> posit2026 - Lecture
+
+Recommended set-up steps:
+- Set name (Content -> open lecture -> gear icon -> info -> insert name -> save)
+- Set access (Content -> open lecture -> gear icon -> access -> sharing -> all users -> save)
+- Set url (Content -> open lecture -> gear icon -> access ->  path -> course/lecture -> save)
+- Set runtime settings (Content -> open lecture -> gear icon -> runtime -> min processes:1, max processes:2, max connections:100, load factor:0.75, max ram: 1, default settings for rest -> save). Note: these settings should be revisited if server hardware RAM/CPU are increased.
+
+## Updating in Posit 
+
+Content -> open lecture -> gear icon -> info tab -> scroll down -> update now
+* It is probably best to uncheck "check for updates periodically" for more control over when updates happen.
+
+
+
