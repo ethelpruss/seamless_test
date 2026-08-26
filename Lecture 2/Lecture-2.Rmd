@@ -495,12 +495,12 @@ output$Q5 <- renderPlot({
 
 ## Sampling in R
 
-- Create a variable called pop that includes the letters a-j
-- Create a variable called samp1 by sampling the population using the sample() function
-- Create a variable called samp2 by sampling the population using the sample() function with replacement
-- Try to figure out how to add a bias to your sample that only draws the ‘black’ letters  a, b, g, and h and then make a samp3 variable with the biased sample. Remember that in sample(x, size, replace = FALSE, prob = NULL), prob stands for  a vector of probability weights for obtaining the elements of the vector being sampled.
+- Create a variable called `pop` that includes the letters a-j
+- Create a variable called `samp1` by sampling the population using the `sample()` function
+- Create a variable called `samp2` by sampling the population using the `sample()` function with replacement
+- Try to figure out how to add a bias to your sample that only draws the ‘black’ letters  a, b, g, and h and then make a `samp3` variable with the biased sample. Remember that in `sample(x, size, replace = FALSE, prob = NULL)`, `prob` stands for  a vector of probability weights for obtaining the elements of the vector being sampled.
 
-**Remember: Figure 10.2**
+**Remember: Figure 10.2** for thinking of biased sampling.
 
 ### Create a variable called pop that includes the letters a-j
 
