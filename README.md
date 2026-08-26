@@ -36,7 +36,7 @@ Recommended set-up steps:
 - Set name (Content -> open lecture -> gear icon -> info -> insert name -> save)
 - Set access (Content -> open lecture -> gear icon -> access -> sharing -> all users -> save)
 - Set url (Content -> open lecture -> gear icon -> access ->  path -> course/lecture -> save)
-- Set runtime settings (Content -> open lecture -> gear icon -> runtime -> min processes:1, max processes:2, max connections:100, load factor:0.75, max ram: 1, default settings for rest -> save). Note: these settings should be revisited if server hardware RAM/CPU are increased.
+- Set runtime settings (Content -> open lecture -> gear icon -> runtime -> min processes : 1, max processes : 2, max connections : 100, load factor : 0.75, max ram: 1, default settings for rest -> save). Note: these settings should be revisited if server hardware RAM/CPU are increased.
 
 ## Updating in Posit 
 
