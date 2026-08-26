@@ -152,8 +152,8 @@ HTML("  <div class='jumbotron jumbotron-fluid'>
 
 ### Question 1
 
-```{r Quiz1}
-  question("If you observed a-0.03 correlation between hours of daylight and mood, which are you most likely to include?",
+```{r Quiz1, echo=FALSE}
+  question("If you observed a -0.03 correlation between hours of daylight and mood, which are you most likely to conclude?",
     answer("There is a negative relationship between hours of daylight and mood."),
     answer("There is a positive relationship between hours of daylight and mood."),
     answer("There is no relationship between hours of daylight and mood."),
@@ -165,7 +165,11 @@ HTML("  <div class='jumbotron jumbotron-fluid'>
 
 ### Results
 
-#### 3. If you observeda-0.03 correlation between hours of daylight and mood, which are you most likely to include?
+#### 3. If you observed a -0.03 correlation between hours of daylight and mood, which are you most likely to conclude?
+
+```{r, Quiz1O, echo = FALSE}
+plotOutput("Q1")
+```
 
 ```{r, Quiz1R, context="server", echo = FALSE, warning = FALSE, message=FALSE, out.width="100%", fig.align = "center"}
 
@@ -197,7 +201,7 @@ output$Q1 <- renderPlot({
 
 ### Question 2
 
-```{r Quiz2}
+```{r Quiz2, echo=FALSE}
   question("In a regression equation, b0 describes which of the following?",
     answer("The x intercept"),
     answer("The regression coefficient of the predictor"),
@@ -247,7 +251,7 @@ output$Q2 <- renderPlot({
 
 ### Question 3
 
-```{r Quiz3}
+```{r Quiz3, echo=FALSE}
  question("All regression models use a straight line to describe the data.",
     answer("Yes", correct = TRUE),
     answer("No", correct = TRUE),
@@ -295,7 +299,7 @@ output$Q3 <- renderPlot({
 
 ### Question 4
 
-```{r Quiz4}
+```{r Quiz4, echo=FALSE}
 question("The slope of a regression line can be:",
     answer("Positive", correct = TRUE),
     answer("Negative", correct = TRUE),
@@ -344,7 +348,7 @@ output$Q4 <- renderPlot({
 
 ### Question 5
 
-```{r Quiz5}
+```{r Quiz5, echo=FALSE}
   question("The R-squared value tells you",
     answer("If there is a relationship between your predictor and your outcome"),
     answer("How much error is in your model"),
