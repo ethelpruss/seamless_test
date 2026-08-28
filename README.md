@@ -11,7 +11,7 @@ How to get the same r environment:
 Double-click `seamless_environment.Rproj` (or _File → Open Project_ in RStudio). This is what triggers `.Rprofile` → `source("renv/activate.R")`, which activates renv for that R session — pointing `.libPaths()` at this project's isolated `renv/library` instead of your personal library. If you just open `Lecture 1.Rmd` directly without opening the project, renv never activates and none of this applies (this is exactly the bug we ran into earlier).
 
 **2. Let renv bootstrap itself if needed.**  
-`renv/library` isn't committed to git (`vcs.ignore.library: true` in `renv/settings.json`) — only `renv.lock`, `renv/activate.R`, and `renv/settings.json` are tracked. On first activation, if `renv` itself isn't already installed on their machine, `activate.R` downloads and installs it automatically into a shared renv cache.
+`renv/library` isn't committed to git (`vcs.ignore.library: true` in `renv/settings.json`) — only `renv.lock`, `renv/activate.R`, and `renv/settings.json` are tracked. On first activation, if `renv` itself isn't already installed on the machine, `activate.R` downloads and installs it automatically into a shared renv cache.
 
 **3. Restore the exact pinned package versions:**
 
