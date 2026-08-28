@@ -37,11 +37,14 @@ Recommended set-up steps:
 - Set access (Content -> open lecture -> gear icon -> access -> sharing -> all users -> save)
 - Set url (Content -> open lecture -> gear icon -> access ->  path -> course/lecture -> save)
 - Set runtime settings (Content -> open lecture -> gear icon -> runtime -> max processes : 2, max connections : 55, load factor : 0.75, max ram: 1, default settings for rest -> save). Note: loading will be faster if you set min processes : 1 before the lecture for that lecture, but it is best to set it back to 0 after so the previous lecture doesn't stay active in the background during your next lectures. These settings should be revisited if server hardware RAM/CPU are increased; estimated recommendations from Claude to support 100 students: minimally 8 GB RAM and 3 CPU cores, optimally 12 GB RAM and 5 CPU cores.
+- Set a tag (Content -> open lecture -> gear icon -> tag -> select -> save)
 
 ## Updating in Posit 
-
 Content -> open lecture -> gear icon -> info tab -> scroll down -> update now
 * It is probably best to uncheck "check for updates periodically" for more control over when updates happen.
+
+## Managing tags in Posit
+Tags let you filter by e.g. course on the content page. You can add or edit tags under admin -> tags from the top of the page menu. For new courses, you can add a new tag under that category. You can also add new categories (a separate sub-list with a header in the filter list) using the top right plus button. Tags are assigned to lectures/apps in the app's tag menu (see set-up steps for how to set a tag).
 
 
 
