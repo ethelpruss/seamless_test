@@ -3334,7 +3334,7 @@
       "checksum": "54cbb416d131e9b3b42706489283c754"
     },
     "css/style.css": {
-      "checksum": "25c789397b46f9449350e3b8c07dcb85"
+      "checksum": "89b874d7fce7ec2d1cb6072a52278d1c"
     },
     "data/driving.csv": {
       "checksum": "419e6ddf91487b6fa25738e27f41dc08"
@@ -3385,13 +3385,10 @@
       "checksum": "e18d5f3f3d68e5c772160894352dc4f2"
     },
     "Lecture6.html": {
-      "checksum": "b2e2ad67c81f2990bbdcfa8c7ec5213d"
+      "checksum": "8cacdc0668b29c3c1886458f29d62c82"
     },
     "Lecture6.Rmd": {
-      "checksum": "cce71552127cc96e0a8eeb7a1df1be33"
-    },
-    "student_progress.txt": {
-      "checksum": "60217ab0e3dd163e8d7715b91a8a7245"
+      "checksum": "ec4043220cfa54b9e745e6ed56d66d4c"
     }
   },
   "users": null

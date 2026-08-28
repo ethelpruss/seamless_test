@@ -913,10 +913,6 @@ if (running_on_connect) {
   message("rsconnect not installed; skipping writeManifest()")
 }
 new_recorder <- function(tutorial_id, tutorial_version, user_id, event, data) {
-  # Always write to local log file
-  cat(user_id, ", ", event, ",", data$label, ", ", data$answer, ", ", data$correct, "\n",
-      sep = "", file = "student_progress.txt", append = TRUE)
-
   ## Only write to database for events that actually have a label (quiz/exercise
   ## events). learnr also fires housekeeping events like "session_start" and
   ## "section_skipped" with no label/question/answer/correct, which would
@@ -967,22 +963,22 @@ session$onSessionEnded(function() {
  
 <script type="application/shiny-prerendered" data-context="server">
 learnr:::question_prerendered_chunk(structure(list(type = "learnr_radio", label = "Quiz1", question = structure("If you observed a -0.03 correlation between hours of daylight and mood, which are you most likely to conclude?", html = TRUE, class = c("html", 
-"character")), answers = list(structure(list(id = "lnr_ans_cadc81f", 
+"character")), answers = list(structure(list(id = "lnr_ans_4a7f2b6", 
     option = "There is a negative relationship between hours of daylight and mood.", 
     value = "There is a negative relationship between hours of daylight and mood.", 
     label = structure("There is a negative relationship between hours of daylight and mood.", html = TRUE, class = c("html", 
     "character")), correct = FALSE, message = NULL, type = "literal"), class = c("tutorial_question_answer", 
-"tutorial_quiz_answer")), structure(list(id = "lnr_ans_476bfc6", 
+"tutorial_quiz_answer")), structure(list(id = "lnr_ans_ef4c941", 
     option = "There is a positive relationship between hours of daylight and mood.", 
     value = "There is a positive relationship between hours of daylight and mood.", 
     label = structure("There is a positive relationship between hours of daylight and mood.", html = TRUE, class = c("html", 
     "character")), correct = FALSE, message = NULL, type = "literal"), class = c("tutorial_question_answer", 
-"tutorial_quiz_answer")), structure(list(id = "lnr_ans_a3ba79d", 
+"tutorial_quiz_answer")), structure(list(id = "lnr_ans_3869380", 
     option = "There is no relationship between hours of daylight and mood.", 
     value = "There is no relationship between hours of daylight and mood.", 
     label = structure("There is no relationship between hours of daylight and mood.", html = TRUE, class = c("html", 
     "character")), correct = FALSE, message = NULL, type = "literal"), class = c("tutorial_question_answer", 
-"tutorial_quiz_answer")), structure(list(id = "lnr_ans_bb57c12", 
+"tutorial_quiz_answer")), structure(list(id = "lnr_ans_4510cb2", 
     option = "Not enough information is provided", value = "Not enough information is provided", 
     label = structure("Not enough information is provided", html = TRUE, class = c("html", 
     "character")), correct = TRUE, message = NULL, type = "literal"), class = c("tutorial_question_answer", 
@@ -993,7 +989,7 @@ learnr:::question_prerendered_chunk(structure(list(type = "learnr_radio", label 
 "character")), incorrect = structure("Hint: Try again, you can pick another answer!", html = TRUE, class = c("html", 
 "character")), message = NULL, post_message = NULL), ids = list(
     answer = "Quiz1-answer", question = "Quiz1"), loading = NULL, 
-    random_answer_order = FALSE, allow_retry = TRUE, seed = 1510759322.7965, 
+    random_answer_order = FALSE, allow_retry = TRUE, seed = 2112886705.01611, 
     options = list()), class = c("learnr_radio", "tutorial_question"
 )), session = session)
 </script>
@@ -1029,18 +1025,18 @@ output$Q1 <- renderPlot({
  
 <script type="application/shiny-prerendered" data-context="server">
 learnr:::question_prerendered_chunk(structure(list(type = "learnr_radio", label = "Quiz2", question = structure("In a regression equation, b0 describes which of the following?", html = TRUE, class = c("html", 
-"character")), answers = list(structure(list(id = "lnr_ans_92d01a2", 
+"character")), answers = list(structure(list(id = "lnr_ans_2b9a2c9", 
     option = "The x intercept", value = "The x intercept", label = structure("The x intercept", html = TRUE, class = c("html", 
     "character")), correct = FALSE, message = NULL, type = "literal"), class = c("tutorial_question_answer", 
-"tutorial_quiz_answer")), structure(list(id = "lnr_ans_7b501d1", 
+"tutorial_quiz_answer")), structure(list(id = "lnr_ans_9717a32", 
     option = "The regression coefficient of the predictor", value = "The regression coefficient of the predictor", 
     label = structure("The regression coefficient of the predictor", html = TRUE, class = c("html", 
     "character")), correct = FALSE, message = NULL, type = "literal"), class = c("tutorial_question_answer", 
-"tutorial_quiz_answer")), structure(list(id = "lnr_ans_dbbbd98", 
+"tutorial_quiz_answer")), structure(list(id = "lnr_ans_95802aa", 
     option = "The correlation coefficients", value = "The correlation coefficients", 
     label = structure("The correlation coefficients", html = TRUE, class = c("html", 
     "character")), correct = FALSE, message = NULL, type = "literal"), class = c("tutorial_question_answer", 
-"tutorial_quiz_answer")), structure(list(id = "lnr_ans_691a982", 
+"tutorial_quiz_answer")), structure(list(id = "lnr_ans_62d2e6c", 
     option = "The y intercept", value = "The y intercept", label = structure("The y intercept", html = TRUE, class = c("html", 
     "character")), correct = TRUE, message = NULL, type = "literal"), class = c("tutorial_question_answer", 
 "tutorial_quiz_answer"))), button_labels = list(submit = structure("<span data-i18n=\"button.questionsubmit\">Submit Answer<\u002fspan>", html = TRUE, class = c("html", 
@@ -1050,7 +1046,7 @@ learnr:::question_prerendered_chunk(structure(list(type = "learnr_radio", label 
 "character")), incorrect = structure("Hint: Try again, you can pick another answer!", html = TRUE, class = c("html", 
 "character")), message = NULL, post_message = NULL), ids = list(
     answer = "Quiz2-answer", question = "Quiz2"), loading = NULL, 
-    random_answer_order = FALSE, allow_retry = TRUE, seed = 201702212.906075, 
+    random_answer_order = FALSE, allow_retry = TRUE, seed = 340698910.84135, 
     options = list()), class = c("learnr_radio", "tutorial_question"
 )), session = session)
 </script>
@@ -1086,10 +1082,10 @@ output$Q2 <- renderPlot({
  
 <script type="application/shiny-prerendered" data-context="server">
 learnr:::question_prerendered_chunk(structure(list(type = "learnr_checkbox", label = "Quiz3", question = structure("All regression models use a straight line to describe the data.", html = TRUE, class = c("html", 
-"character")), answers = list(structure(list(id = "lnr_ans_5a7a5d2", 
+"character")), answers = list(structure(list(id = "lnr_ans_efb0c32", 
     option = "Yes", value = "Yes", label = structure("Yes", html = TRUE, class = c("html", 
     "character")), correct = TRUE, message = NULL, type = "literal"), class = c("tutorial_question_answer", 
-"tutorial_quiz_answer")), structure(list(id = "lnr_ans_aad5991", 
+"tutorial_quiz_answer")), structure(list(id = "lnr_ans_97d84c1", 
     option = "No", value = "No", label = structure("No", html = TRUE, class = c("html", 
     "character")), correct = TRUE, message = NULL, type = "literal"), class = c("tutorial_question_answer", 
 "tutorial_quiz_answer"))), button_labels = list(submit = structure("<span data-i18n=\"button.questionsubmit\">Submit Answer<\u002fspan>", html = TRUE, class = c("html", 
@@ -1099,7 +1095,7 @@ learnr:::question_prerendered_chunk(structure(list(type = "learnr_checkbox", lab
 "character")), incorrect = structure("Hint: Try again, you can pick another answer!", html = TRUE, class = c("html", 
 "character")), message = NULL, post_message = NULL), ids = list(
     answer = "Quiz3-answer", question = "Quiz3"), loading = NULL, 
-    random_answer_order = FALSE, allow_retry = TRUE, seed = 1856962027.13528, 
+    random_answer_order = FALSE, allow_retry = TRUE, seed = 926480452.068574, 
     options = list()), class = c("learnr_checkbox", "tutorial_question"
 )), session = session)
 </script>
@@ -1135,16 +1131,16 @@ output$Q3 <- renderPlot({
  
 <script type="application/shiny-prerendered" data-context="server">
 learnr:::question_prerendered_chunk(structure(list(type = "learnr_checkbox", label = "Quiz4", question = structure("The slope of a regression line can be:", html = TRUE, class = c("html", 
-"character")), answers = list(structure(list(id = "lnr_ans_1c01e15", 
+"character")), answers = list(structure(list(id = "lnr_ans_96b9578", 
     option = "Positive", value = "Positive", label = structure("Positive", html = TRUE, class = c("html", 
     "character")), correct = TRUE, message = NULL, type = "literal"), class = c("tutorial_question_answer", 
-"tutorial_quiz_answer")), structure(list(id = "lnr_ans_c6ae766", 
+"tutorial_quiz_answer")), structure(list(id = "lnr_ans_3c9d11d", 
     option = "Negative", value = "Negative", label = structure("Negative", html = TRUE, class = c("html", 
     "character")), correct = TRUE, message = NULL, type = "literal"), class = c("tutorial_question_answer", 
-"tutorial_quiz_answer")), structure(list(id = "lnr_ans_21387d8", 
+"tutorial_quiz_answer")), structure(list(id = "lnr_ans_1fea30a", 
     option = "Zero", value = "Zero", label = structure("Zero", html = TRUE, class = c("html", 
     "character")), correct = TRUE, message = NULL, type = "literal"), class = c("tutorial_question_answer", 
-"tutorial_quiz_answer")), structure(list(id = "lnr_ans_bcbf048", 
+"tutorial_quiz_answer")), structure(list(id = "lnr_ans_9089004", 
     option = "Undefined", value = "Undefined", label = structure("Undefined", html = TRUE, class = c("html", 
     "character")), correct = TRUE, message = NULL, type = "literal"), class = c("tutorial_question_answer", 
 "tutorial_quiz_answer"))), button_labels = list(submit = structure("<span data-i18n=\"button.questionsubmit\">Submit Answer<\u002fspan>", html = TRUE, class = c("html", 
@@ -1154,7 +1150,7 @@ learnr:::question_prerendered_chunk(structure(list(type = "learnr_checkbox", lab
 "character")), incorrect = structure("Hint: Try again, you can pick another answer!", html = TRUE, class = c("html", 
 "character")), message = NULL, post_message = NULL), ids = list(
     answer = "Quiz4-answer", question = "Quiz4"), loading = NULL, 
-    random_answer_order = FALSE, allow_retry = TRUE, seed = 1366371131.86373, 
+    random_answer_order = FALSE, allow_retry = TRUE, seed = 928737881.567523, 
     options = list()), class = c("learnr_checkbox", "tutorial_question"
 )), session = session)
 </script>
@@ -1190,21 +1186,21 @@ output$Q4 <- renderPlot({
  
 <script type="application/shiny-prerendered" data-context="server">
 learnr:::question_prerendered_chunk(structure(list(type = "learnr_radio", label = "Quiz5", question = structure("The R-squared value tells you", html = TRUE, class = c("html", 
-"character")), answers = list(structure(list(id = "lnr_ans_2de4df1", 
+"character")), answers = list(structure(list(id = "lnr_ans_49e6545", 
     option = "If there is a relationship between your predictor and your outcome", 
     value = "If there is a relationship between your predictor and your outcome", 
     label = structure("If there is a relationship between your predictor and your outcome", html = TRUE, class = c("html", 
     "character")), correct = FALSE, message = NULL, type = "literal"), class = c("tutorial_question_answer", 
-"tutorial_quiz_answer")), structure(list(id = "lnr_ans_7a38613", 
+"tutorial_quiz_answer")), structure(list(id = "lnr_ans_baf1960", 
     option = "How much error is in your model", value = "How much error is in your model", 
     label = structure("How much error is in your model", html = TRUE, class = c("html", 
     "character")), correct = FALSE, message = NULL, type = "literal"), class = c("tutorial_question_answer", 
-"tutorial_quiz_answer")), structure(list(id = "lnr_ans_b1b4e3c", 
+"tutorial_quiz_answer")), structure(list(id = "lnr_ans_d99b812", 
     option = "How much of the variance your overall model accounts for", 
     value = "How much of the variance your overall model accounts for", 
     label = structure("How much of the variance your overall model accounts for", html = TRUE, class = c("html", 
     "character")), correct = TRUE, message = NULL, type = "literal"), class = c("tutorial_question_answer", 
-"tutorial_quiz_answer")), structure(list(id = "lnr_ans_74c7336", 
+"tutorial_quiz_answer")), structure(list(id = "lnr_ans_1b8a614", 
     option = "If your regression summary is valid ", value = "If your regression summary is valid ", 
     label = structure("If your regression summary is valid", html = TRUE, class = c("html", 
     "character")), correct = FALSE, message = NULL, type = "literal"), class = c("tutorial_question_answer", 
@@ -1215,7 +1211,7 @@ learnr:::question_prerendered_chunk(structure(list(type = "learnr_radio", label 
 "character")), incorrect = structure("Hint: Try again, you can pick another answer!", html = TRUE, class = c("html", 
 "character")), message = NULL, post_message = NULL), ids = list(
     answer = "Quiz5-answer", question = "Quiz5"), loading = NULL, 
-    random_answer_order = FALSE, allow_retry = TRUE, seed = 564864194.236965, 
+    random_answer_order = FALSE, allow_retry = TRUE, seed = 473843613.779349, 
     options = list()), class = c("learnr_radio", "tutorial_question"
 )), session = session)
 </script>
@@ -1299,9 +1295,7 @@ learnr:::store_exercise_cache(structure(list(label = "ex1", global_setup = struc
 "} else {", "  warning(\"rsconnect not installed; skipping writeManifest()\")", 
 "  message(\"rsconnect not installed; skipping writeManifest()\")", 
 "}", "new_recorder <- function(tutorial_id, tutorial_version, user_id, event, data) {", 
-"  # Always write to local log file", "  cat(user_id, \", \", event, \",\", data$label, \", \", data$answer, \", \", data$correct, \"\\n\",", 
-"      sep = \"\", file = \"student_progress.txt\", append = TRUE)", 
-"", "  ## Only write to database for events that actually have a label (quiz/exercise", 
+"  ## Only write to database for events that actually have a label (quiz/exercise", 
 "  ## events). learnr also fires housekeeping events like \"session_start\" and", 
 "  ## \"section_skipped\" with no label/question/answer/correct, which would", 
 "  ## otherwise violate the NOT NULL constraint on \"label\".", 
@@ -1394,9 +1388,7 @@ learnr:::store_exercise_cache(structure(list(label = "ex11", global_setup = stru
 "} else {", "  warning(\"rsconnect not installed; skipping writeManifest()\")", 
 "  message(\"rsconnect not installed; skipping writeManifest()\")", 
 "}", "new_recorder <- function(tutorial_id, tutorial_version, user_id, event, data) {", 
-"  # Always write to local log file", "  cat(user_id, \", \", event, \",\", data$label, \", \", data$answer, \", \", data$correct, \"\\n\",", 
-"      sep = \"\", file = \"student_progress.txt\", append = TRUE)", 
-"", "  ## Only write to database for events that actually have a label (quiz/exercise", 
+"  ## Only write to database for events that actually have a label (quiz/exercise", 
 "  ## events). learnr also fires housekeeping events like \"session_start\" and", 
 "  ## \"section_skipped\" with no label/question/answer/correct, which would", 
 "  ## otherwise violate the NOT NULL constraint on \"label\".", 
@@ -1490,9 +1482,7 @@ learnr:::store_exercise_cache(structure(list(label = "ex2", global_setup = struc
 "} else {", "  warning(\"rsconnect not installed; skipping writeManifest()\")", 
 "  message(\"rsconnect not installed; skipping writeManifest()\")", 
 "}", "new_recorder <- function(tutorial_id, tutorial_version, user_id, event, data) {", 
-"  # Always write to local log file", "  cat(user_id, \", \", event, \",\", data$label, \", \", data$answer, \", \", data$correct, \"\\n\",", 
-"      sep = \"\", file = \"student_progress.txt\", append = TRUE)", 
-"", "  ## Only write to database for events that actually have a label (quiz/exercise", 
+"  ## Only write to database for events that actually have a label (quiz/exercise", 
 "  ## events). learnr also fires housekeeping events like \"session_start\" and", 
 "  ## \"section_skipped\" with no label/question/answer/correct, which would", 
 "  ## otherwise violate the NOT NULL constraint on \"label\".", 
@@ -1585,9 +1575,7 @@ learnr:::store_exercise_cache(structure(list(label = "ex3", global_setup = struc
 "} else {", "  warning(\"rsconnect not installed; skipping writeManifest()\")", 
 "  message(\"rsconnect not installed; skipping writeManifest()\")", 
 "}", "new_recorder <- function(tutorial_id, tutorial_version, user_id, event, data) {", 
-"  # Always write to local log file", "  cat(user_id, \", \", event, \",\", data$label, \", \", data$answer, \", \", data$correct, \"\\n\",", 
-"      sep = \"\", file = \"student_progress.txt\", append = TRUE)", 
-"", "  ## Only write to database for events that actually have a label (quiz/exercise", 
+"  ## Only write to database for events that actually have a label (quiz/exercise", 
 "  ## events). learnr also fires housekeeping events like \"session_start\" and", 
 "  ## \"section_skipped\" with no label/question/answer/correct, which would", 
 "  ## otherwise violate the NOT NULL constraint on \"label\".", 
@@ -1683,9 +1671,7 @@ learnr:::store_exercise_cache(structure(list(label = "ex4", global_setup = struc
 "} else {", "  warning(\"rsconnect not installed; skipping writeManifest()\")", 
 "  message(\"rsconnect not installed; skipping writeManifest()\")", 
 "}", "new_recorder <- function(tutorial_id, tutorial_version, user_id, event, data) {", 
-"  # Always write to local log file", "  cat(user_id, \", \", event, \",\", data$label, \", \", data$answer, \", \", data$correct, \"\\n\",", 
-"      sep = \"\", file = \"student_progress.txt\", append = TRUE)", 
-"", "  ## Only write to database for events that actually have a label (quiz/exercise", 
+"  ## Only write to database for events that actually have a label (quiz/exercise", 
 "  ## events). learnr also fires housekeeping events like \"session_start\" and", 
 "  ## \"section_skipped\" with no label/question/answer/correct, which would", 
 "  ## otherwise violate the NOT NULL constraint on \"label\".", 

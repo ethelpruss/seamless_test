@@ -101,10 +101,6 @@ if (running_on_connect) {
   message("rsconnect not installed; skipping writeManifest()")
 }
 new_recorder <- function(tutorial_id, tutorial_version, user_id, event, data) {
-  # Always write to local log file
-  cat(user_id, ", ", event, ",", data$label, ", ", data$answer, ", ", data$correct, "\n",
-      sep = "", file = "student_progress.txt", append = TRUE)
-
   ## Only write to database for events that actually have a label (quiz/exercise
   ## events). learnr also fires housekeeping events like "session_start" and
   ## "section_skipped" with no label/question/answer/correct, which would
