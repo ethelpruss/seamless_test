@@ -36,7 +36,7 @@ Recommended set-up steps:
 - Set name (Content -> open lecture -> gear icon -> info -> insert name -> save)
 - Set access (Content -> open lecture -> gear icon -> access -> sharing -> all users -> save)
 - Set url (Content -> open lecture -> gear icon -> access ->  path -> course/lecture -> save)
-- Set runtime settings (Content -> open lecture -> gear icon -> runtime -> max processes : 2, max connections : 55, load factor : 0.75, max ram: 1, default settings for rest -> save). Note: loading will be faster if you set min processes : 1 before the lecture for that lecture, but it is best to set it back to 0 after so the previous lecture doesn't stay active in the background during your next lectures. These settings should be revisited if server hardware RAM/CPU are increased; estimated recommendations from Claude to support 100 students: minimally 8 GB RAM and 3 CPU cores, optimally 12 GB RAM and 5 CPU cores.
+- Set runtime settings (Content -> open lecture -> gear icon -> runtime -> max processes : 4, max connections : 25, load factor : 0.75, initial timeout: 120, max ram: 1.5, default settings for rest -> save). Note: loading will be faster for students if you set min processes to 1 or 2 at the start of the lecture for that lecture, but it is best to set it back to 0 after so the previous lecture doesn't stay active in the background taking up RAM.
 - Set a tag (Content -> open lecture -> gear icon -> tag -> select -> save)
 
 ## Updating in Posit 
