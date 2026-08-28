@@ -4,7 +4,7 @@
   "platform": "4.4.2",
   "metadata": {
     "appmode": "rmd-shiny",
-    "primary_rmd": "Lecture 6.Rmd",
+    "primary_rmd": "Lecture6.Rmd",
     "primary_html": null,
     "content_category": null,
     "has_parameters": false
@@ -3384,14 +3384,14 @@
     "images/voicepitch.png": {
       "checksum": "e18d5f3f3d68e5c772160894352dc4f2"
     },
-    "Lecture-6.html": {
-      "checksum": "a6a3e50e3174d33919e08ea9a33f94fe"
+    "Lecture6.html": {
+      "checksum": "b2e2ad67c81f2990bbdcfa8c7ec5213d"
     },
-    "Lecture 6.Rmd": {
-      "checksum": "0de7c2957cc92540f9e99fe52642739d"
+    "Lecture6.Rmd": {
+      "checksum": "cce71552127cc96e0a8eeb7a1df1be33"
     },
     "student_progress.txt": {
-      "checksum": "99304c7bcb92d4a08d0a87e0e0c87ce5"
+      "checksum": "60217ab0e3dd163e8d7715b91a8a7245"
     }
   },
   "users": null

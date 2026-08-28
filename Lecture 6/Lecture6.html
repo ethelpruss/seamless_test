@@ -890,8 +890,16 @@ knitr::opts_chunk$set(echo = TRUE)
 tutorial_options(exercise.eval = FALSE, exercise.checker=FALSE)
 
 ## recording data
-## Write rsconnect manifest (safe if rsconnect not installed)
-if (requireNamespace("rsconnect", quietly = TRUE)) {
+## Write rsconnect manifest only when NOT running live on Connect (Connect
+## always mounts deployed content under /opt/rstudio-connect/) -- i.e. when
+## someone is knitting/running this locally to regenerate the manifest before
+## deploying. Avoids re-scanning the full package dependency tree on every
+## cold process start in production
+running_on_connect <- startsWith(getwd(), "/opt/rstudio-connect/")
+
+if (running_on_connect) {
+  message("Running on Connect; skipping writeManifest().")
+} else if (requireNamespace("rsconnect", quietly = TRUE)) {
   ## Write into this Rmd's own folder, not whatever the working directory
   ## happens to be (e.g. the project root when run from RStudio).
   manifest_dir <- tryCatch(
@@ -959,22 +967,22 @@ session$onSessionEnded(function() {
  
 <script type="application/shiny-prerendered" data-context="server">
 learnr:::question_prerendered_chunk(structure(list(type = "learnr_radio", label = "Quiz1", question = structure("If you observed a -0.03 correlation between hours of daylight and mood, which are you most likely to conclude?", html = TRUE, class = c("html", 
-"character")), answers = list(structure(list(id = "lnr_ans_ad0307f", 
+"character")), answers = list(structure(list(id = "lnr_ans_cadc81f", 
     option = "There is a negative relationship between hours of daylight and mood.", 
     value = "There is a negative relationship between hours of daylight and mood.", 
     label = structure("There is a negative relationship between hours of daylight and mood.", html = TRUE, class = c("html", 
     "character")), correct = FALSE, message = NULL, type = "literal"), class = c("tutorial_question_answer", 
-"tutorial_quiz_answer")), structure(list(id = "lnr_ans_e743506", 
+"tutorial_quiz_answer")), structure(list(id = "lnr_ans_476bfc6", 
     option = "There is a positive relationship between hours of daylight and mood.", 
     value = "There is a positive relationship between hours of daylight and mood.", 
     label = structure("There is a positive relationship between hours of daylight and mood.", html = TRUE, class = c("html", 
     "character")), correct = FALSE, message = NULL, type = "literal"), class = c("tutorial_question_answer", 
-"tutorial_quiz_answer")), structure(list(id = "lnr_ans_1a25407", 
+"tutorial_quiz_answer")), structure(list(id = "lnr_ans_a3ba79d", 
     option = "There is no relationship between hours of daylight and mood.", 
     value = "There is no relationship between hours of daylight and mood.", 
     label = structure("There is no relationship between hours of daylight and mood.", html = TRUE, class = c("html", 
     "character")), correct = FALSE, message = NULL, type = "literal"), class = c("tutorial_question_answer", 
-"tutorial_quiz_answer")), structure(list(id = "lnr_ans_3ab4aa5", 
+"tutorial_quiz_answer")), structure(list(id = "lnr_ans_bb57c12", 
     option = "Not enough information is provided", value = "Not enough information is provided", 
     label = structure("Not enough information is provided", html = TRUE, class = c("html", 
     "character")), correct = TRUE, message = NULL, type = "literal"), class = c("tutorial_question_answer", 
@@ -985,7 +993,7 @@ learnr:::question_prerendered_chunk(structure(list(type = "learnr_radio", label 
 "character")), incorrect = structure("Hint: Try again, you can pick another answer!", html = TRUE, class = c("html", 
 "character")), message = NULL, post_message = NULL), ids = list(
     answer = "Quiz1-answer", question = "Quiz1"), loading = NULL, 
-    random_answer_order = FALSE, allow_retry = TRUE, seed = 2133149605.50667, 
+    random_answer_order = FALSE, allow_retry = TRUE, seed = 1510759322.7965, 
     options = list()), class = c("learnr_radio", "tutorial_question"
 )), session = session)
 </script>
@@ -1021,18 +1029,18 @@ output$Q1 <- renderPlot({
  
 <script type="application/shiny-prerendered" data-context="server">
 learnr:::question_prerendered_chunk(structure(list(type = "learnr_radio", label = "Quiz2", question = structure("In a regression equation, b0 describes which of the following?", html = TRUE, class = c("html", 
-"character")), answers = list(structure(list(id = "lnr_ans_f55c1ce", 
+"character")), answers = list(structure(list(id = "lnr_ans_92d01a2", 
     option = "The x intercept", value = "The x intercept", label = structure("The x intercept", html = TRUE, class = c("html", 
     "character")), correct = FALSE, message = NULL, type = "literal"), class = c("tutorial_question_answer", 
-"tutorial_quiz_answer")), structure(list(id = "lnr_ans_d411ac", 
+"tutorial_quiz_answer")), structure(list(id = "lnr_ans_7b501d1", 
     option = "The regression coefficient of the predictor", value = "The regression coefficient of the predictor", 
     label = structure("The regression coefficient of the predictor", html = TRUE, class = c("html", 
     "character")), correct = FALSE, message = NULL, type = "literal"), class = c("tutorial_question_answer", 
-"tutorial_quiz_answer")), structure(list(id = "lnr_ans_c9344c1", 
+"tutorial_quiz_answer")), structure(list(id = "lnr_ans_dbbbd98", 
     option = "The correlation coefficients", value = "The correlation coefficients", 
     label = structure("The correlation coefficients", html = TRUE, class = c("html", 
     "character")), correct = FALSE, message = NULL, type = "literal"), class = c("tutorial_question_answer", 
-"tutorial_quiz_answer")), structure(list(id = "lnr_ans_1c951fb", 
+"tutorial_quiz_answer")), structure(list(id = "lnr_ans_691a982", 
     option = "The y intercept", value = "The y intercept", label = structure("The y intercept", html = TRUE, class = c("html", 
     "character")), correct = TRUE, message = NULL, type = "literal"), class = c("tutorial_question_answer", 
 "tutorial_quiz_answer"))), button_labels = list(submit = structure("<span data-i18n=\"button.questionsubmit\">Submit Answer<\u002fspan>", html = TRUE, class = c("html", 
@@ -1042,7 +1050,7 @@ learnr:::question_prerendered_chunk(structure(list(type = "learnr_radio", label 
 "character")), incorrect = structure("Hint: Try again, you can pick another answer!", html = TRUE, class = c("html", 
 "character")), message = NULL, post_message = NULL), ids = list(
     answer = "Quiz2-answer", question = "Quiz2"), loading = NULL, 
-    random_answer_order = FALSE, allow_retry = TRUE, seed = 2111080150.51695, 
+    random_answer_order = FALSE, allow_retry = TRUE, seed = 201702212.906075, 
     options = list()), class = c("learnr_radio", "tutorial_question"
 )), session = session)
 </script>
@@ -1078,10 +1086,10 @@ output$Q2 <- renderPlot({
  
 <script type="application/shiny-prerendered" data-context="server">
 learnr:::question_prerendered_chunk(structure(list(type = "learnr_checkbox", label = "Quiz3", question = structure("All regression models use a straight line to describe the data.", html = TRUE, class = c("html", 
-"character")), answers = list(structure(list(id = "lnr_ans_3d78daf", 
+"character")), answers = list(structure(list(id = "lnr_ans_5a7a5d2", 
     option = "Yes", value = "Yes", label = structure("Yes", html = TRUE, class = c("html", 
     "character")), correct = TRUE, message = NULL, type = "literal"), class = c("tutorial_question_answer", 
-"tutorial_quiz_answer")), structure(list(id = "lnr_ans_743c8e9", 
+"tutorial_quiz_answer")), structure(list(id = "lnr_ans_aad5991", 
     option = "No", value = "No", label = structure("No", html = TRUE, class = c("html", 
     "character")), correct = TRUE, message = NULL, type = "literal"), class = c("tutorial_question_answer", 
 "tutorial_quiz_answer"))), button_labels = list(submit = structure("<span data-i18n=\"button.questionsubmit\">Submit Answer<\u002fspan>", html = TRUE, class = c("html", 
@@ -1091,7 +1099,7 @@ learnr:::question_prerendered_chunk(structure(list(type = "learnr_checkbox", lab
 "character")), incorrect = structure("Hint: Try again, you can pick another answer!", html = TRUE, class = c("html", 
 "character")), message = NULL, post_message = NULL), ids = list(
     answer = "Quiz3-answer", question = "Quiz3"), loading = NULL, 
-    random_answer_order = FALSE, allow_retry = TRUE, seed = 295921716.362201, 
+    random_answer_order = FALSE, allow_retry = TRUE, seed = 1856962027.13528, 
     options = list()), class = c("learnr_checkbox", "tutorial_question"
 )), session = session)
 </script>
@@ -1127,16 +1135,16 @@ output$Q3 <- renderPlot({
  
 <script type="application/shiny-prerendered" data-context="server">
 learnr:::question_prerendered_chunk(structure(list(type = "learnr_checkbox", label = "Quiz4", question = structure("The slope of a regression line can be:", html = TRUE, class = c("html", 
-"character")), answers = list(structure(list(id = "lnr_ans_b5afa1d", 
+"character")), answers = list(structure(list(id = "lnr_ans_1c01e15", 
     option = "Positive", value = "Positive", label = structure("Positive", html = TRUE, class = c("html", 
     "character")), correct = TRUE, message = NULL, type = "literal"), class = c("tutorial_question_answer", 
-"tutorial_quiz_answer")), structure(list(id = "lnr_ans_f52c34d", 
+"tutorial_quiz_answer")), structure(list(id = "lnr_ans_c6ae766", 
     option = "Negative", value = "Negative", label = structure("Negative", html = TRUE, class = c("html", 
     "character")), correct = TRUE, message = NULL, type = "literal"), class = c("tutorial_question_answer", 
-"tutorial_quiz_answer")), structure(list(id = "lnr_ans_8dadbea", 
+"tutorial_quiz_answer")), structure(list(id = "lnr_ans_21387d8", 
     option = "Zero", value = "Zero", label = structure("Zero", html = TRUE, class = c("html", 
     "character")), correct = TRUE, message = NULL, type = "literal"), class = c("tutorial_question_answer", 
-"tutorial_quiz_answer")), structure(list(id = "lnr_ans_87f3b33", 
+"tutorial_quiz_answer")), structure(list(id = "lnr_ans_bcbf048", 
     option = "Undefined", value = "Undefined", label = structure("Undefined", html = TRUE, class = c("html", 
     "character")), correct = TRUE, message = NULL, type = "literal"), class = c("tutorial_question_answer", 
 "tutorial_quiz_answer"))), button_labels = list(submit = structure("<span data-i18n=\"button.questionsubmit\">Submit Answer<\u002fspan>", html = TRUE, class = c("html", 
@@ -1146,7 +1154,7 @@ learnr:::question_prerendered_chunk(structure(list(type = "learnr_checkbox", lab
 "character")), incorrect = structure("Hint: Try again, you can pick another answer!", html = TRUE, class = c("html", 
 "character")), message = NULL, post_message = NULL), ids = list(
     answer = "Quiz4-answer", question = "Quiz4"), loading = NULL, 
-    random_answer_order = FALSE, allow_retry = TRUE, seed = 1172923689.95381, 
+    random_answer_order = FALSE, allow_retry = TRUE, seed = 1366371131.86373, 
     options = list()), class = c("learnr_checkbox", "tutorial_question"
 )), session = session)
 </script>
@@ -1182,21 +1190,21 @@ output$Q4 <- renderPlot({
  
 <script type="application/shiny-prerendered" data-context="server">
 learnr:::question_prerendered_chunk(structure(list(type = "learnr_radio", label = "Quiz5", question = structure("The R-squared value tells you", html = TRUE, class = c("html", 
-"character")), answers = list(structure(list(id = "lnr_ans_6eb70d6", 
+"character")), answers = list(structure(list(id = "lnr_ans_2de4df1", 
     option = "If there is a relationship between your predictor and your outcome", 
     value = "If there is a relationship between your predictor and your outcome", 
     label = structure("If there is a relationship between your predictor and your outcome", html = TRUE, class = c("html", 
     "character")), correct = FALSE, message = NULL, type = "literal"), class = c("tutorial_question_answer", 
-"tutorial_quiz_answer")), structure(list(id = "lnr_ans_b41aa3c", 
+"tutorial_quiz_answer")), structure(list(id = "lnr_ans_7a38613", 
     option = "How much error is in your model", value = "How much error is in your model", 
     label = structure("How much error is in your model", html = TRUE, class = c("html", 
     "character")), correct = FALSE, message = NULL, type = "literal"), class = c("tutorial_question_answer", 
-"tutorial_quiz_answer")), structure(list(id = "lnr_ans_5448db5", 
+"tutorial_quiz_answer")), structure(list(id = "lnr_ans_b1b4e3c", 
     option = "How much of the variance your overall model accounts for", 
     value = "How much of the variance your overall model accounts for", 
     label = structure("How much of the variance your overall model accounts for", html = TRUE, class = c("html", 
     "character")), correct = TRUE, message = NULL, type = "literal"), class = c("tutorial_question_answer", 
-"tutorial_quiz_answer")), structure(list(id = "lnr_ans_4a9b4e", 
+"tutorial_quiz_answer")), structure(list(id = "lnr_ans_74c7336", 
     option = "If your regression summary is valid ", value = "If your regression summary is valid ", 
     label = structure("If your regression summary is valid", html = TRUE, class = c("html", 
     "character")), correct = FALSE, message = NULL, type = "literal"), class = c("tutorial_question_answer", 
@@ -1207,7 +1215,7 @@ learnr:::question_prerendered_chunk(structure(list(type = "learnr_radio", label 
 "character")), incorrect = structure("Hint: Try again, you can pick another answer!", html = TRUE, class = c("html", 
 "character")), message = NULL, post_message = NULL), ids = list(
     answer = "Quiz5-answer", question = "Quiz5"), loading = NULL, 
-    random_answer_order = FALSE, allow_retry = TRUE, seed = 1549763850.77833, 
+    random_answer_order = FALSE, allow_retry = TRUE, seed = 564864194.236965, 
     options = list()), class = c("learnr_radio", "tutorial_question"
 )), session = session)
 </script>
@@ -1276,8 +1284,14 @@ learnr:::store_exercise_cache(structure(list(label = "ex1", global_setup = struc
 "    }", "", "  } else {", "    message(\"DBI/RPostgres not available; disabling database features.\")", 
 "    use_database <- FALSE", "  }", "}", "", "## options", "knitr::opts_chunk$set(echo = TRUE)", 
 "tutorial_options(exercise.eval = FALSE, exercise.checker=FALSE)", 
-"", "## recording data", "## Write rsconnect manifest (safe if rsconnect not installed)", 
-"if (requireNamespace(\"rsconnect\", quietly = TRUE)) {", "  ## Write into this Rmd's own folder, not whatever the working directory", 
+"", "## recording data", "## Write rsconnect manifest only when NOT running live on Connect (Connect", 
+"## always mounts deployed content under /opt/rstudio-connect/) -- i.e. when", 
+"## someone is knitting/running this locally to regenerate the manifest before", 
+"## deploying. Avoids re-scanning the full package dependency tree on every", 
+"## cold process start in production", "running_on_connect <- startsWith(getwd(), \"/opt/rstudio-connect/\")", 
+"", "if (running_on_connect) {", "  message(\"Running on Connect; skipping writeManifest().\")", 
+"} else if (requireNamespace(\"rsconnect\", quietly = TRUE)) {", 
+"  ## Write into this Rmd's own folder, not whatever the working directory", 
 "  ## happens to be (e.g. the project root when run from RStudio).", 
 "  manifest_dir <- tryCatch(", "    dirname(knitr::current_input(dir = TRUE)),", 
 "    error = function(e) NA_character_", "  )", "  if (is.na(manifest_dir) || !nzchar(manifest_dir)) manifest_dir <- getwd()", 
@@ -1310,10 +1324,10 @@ learnr:::store_exercise_cache(structure(list(label = "ex1", global_setup = struc
         tidy = FALSE, tidy.opts = NULL, collapse = FALSE, prompt = FALSE, 
         comment = NA, highlight = FALSE, size = "normalsize", 
         background = "#F7F7F7", strip.white = TRUE, cache = 0, 
-        cache.path = "Lecture-6_cache/html/", cache.vars = NULL, 
+        cache.path = "Lecture6_cache/html/", cache.vars = NULL, 
         cache.lazy = TRUE, dependson = NULL, autodep = FALSE, 
         cache.rebuild = FALSE, fig.keep = "high", fig.show = "asis", 
-        fig.align = "default", fig.path = "Lecture-6_files/figure-html/", 
+        fig.align = "default", fig.path = "Lecture6_files/figure-html/", 
         dev = "png", dev.args = NULL, dpi = 192, fig.ext = "png", 
         fig.width = 6.5, fig.height = 4, fig.env = "figure", 
         fig.cap = NULL, fig.scap = NULL, fig.lp = "fig:", fig.subcap = NULL, 
@@ -1365,8 +1379,14 @@ learnr:::store_exercise_cache(structure(list(label = "ex11", global_setup = stru
 "    }", "", "  } else {", "    message(\"DBI/RPostgres not available; disabling database features.\")", 
 "    use_database <- FALSE", "  }", "}", "", "## options", "knitr::opts_chunk$set(echo = TRUE)", 
 "tutorial_options(exercise.eval = FALSE, exercise.checker=FALSE)", 
-"", "## recording data", "## Write rsconnect manifest (safe if rsconnect not installed)", 
-"if (requireNamespace(\"rsconnect\", quietly = TRUE)) {", "  ## Write into this Rmd's own folder, not whatever the working directory", 
+"", "## recording data", "## Write rsconnect manifest only when NOT running live on Connect (Connect", 
+"## always mounts deployed content under /opt/rstudio-connect/) -- i.e. when", 
+"## someone is knitting/running this locally to regenerate the manifest before", 
+"## deploying. Avoids re-scanning the full package dependency tree on every", 
+"## cold process start in production", "running_on_connect <- startsWith(getwd(), \"/opt/rstudio-connect/\")", 
+"", "if (running_on_connect) {", "  message(\"Running on Connect; skipping writeManifest().\")", 
+"} else if (requireNamespace(\"rsconnect\", quietly = TRUE)) {", 
+"  ## Write into this Rmd's own folder, not whatever the working directory", 
 "  ## happens to be (e.g. the project root when run from RStudio).", 
 "  manifest_dir <- tryCatch(", "    dirname(knitr::current_input(dir = TRUE)),", 
 "    error = function(e) NA_character_", "  )", "  if (is.na(manifest_dir) || !nzchar(manifest_dir)) manifest_dir <- getwd()", 
@@ -1399,10 +1419,10 @@ learnr:::store_exercise_cache(structure(list(label = "ex11", global_setup = stru
         tidy = FALSE, tidy.opts = NULL, collapse = FALSE, prompt = FALSE, 
         comment = NA, highlight = FALSE, size = "normalsize", 
         background = "#F7F7F7", strip.white = TRUE, cache = 0, 
-        cache.path = "Lecture-6_cache/html/", cache.vars = NULL, 
+        cache.path = "Lecture6_cache/html/", cache.vars = NULL, 
         cache.lazy = TRUE, dependson = NULL, autodep = FALSE, 
         cache.rebuild = FALSE, fig.keep = "high", fig.show = "asis", 
-        fig.align = "default", fig.path = "Lecture-6_files/figure-html/", 
+        fig.align = "default", fig.path = "Lecture6_files/figure-html/", 
         dev = "png", dev.args = NULL, dpi = 192, fig.ext = "png", 
         fig.width = 6.5, fig.height = 4, fig.env = "figure", 
         fig.cap = NULL, fig.scap = NULL, fig.lp = "fig:", fig.subcap = NULL, 
@@ -1455,8 +1475,14 @@ learnr:::store_exercise_cache(structure(list(label = "ex2", global_setup = struc
 "    }", "", "  } else {", "    message(\"DBI/RPostgres not available; disabling database features.\")", 
 "    use_database <- FALSE", "  }", "}", "", "## options", "knitr::opts_chunk$set(echo = TRUE)", 
 "tutorial_options(exercise.eval = FALSE, exercise.checker=FALSE)", 
-"", "## recording data", "## Write rsconnect manifest (safe if rsconnect not installed)", 
-"if (requireNamespace(\"rsconnect\", quietly = TRUE)) {", "  ## Write into this Rmd's own folder, not whatever the working directory", 
+"", "## recording data", "## Write rsconnect manifest only when NOT running live on Connect (Connect", 
+"## always mounts deployed content under /opt/rstudio-connect/) -- i.e. when", 
+"## someone is knitting/running this locally to regenerate the manifest before", 
+"## deploying. Avoids re-scanning the full package dependency tree on every", 
+"## cold process start in production", "running_on_connect <- startsWith(getwd(), \"/opt/rstudio-connect/\")", 
+"", "if (running_on_connect) {", "  message(\"Running on Connect; skipping writeManifest().\")", 
+"} else if (requireNamespace(\"rsconnect\", quietly = TRUE)) {", 
+"  ## Write into this Rmd's own folder, not whatever the working directory", 
 "  ## happens to be (e.g. the project root when run from RStudio).", 
 "  manifest_dir <- tryCatch(", "    dirname(knitr::current_input(dir = TRUE)),", 
 "    error = function(e) NA_character_", "  )", "  if (is.na(manifest_dir) || !nzchar(manifest_dir)) manifest_dir <- getwd()", 
@@ -1489,10 +1515,10 @@ learnr:::store_exercise_cache(structure(list(label = "ex2", global_setup = struc
         tidy = FALSE, tidy.opts = NULL, collapse = FALSE, prompt = FALSE, 
         comment = NA, highlight = FALSE, size = "normalsize", 
         background = "#F7F7F7", strip.white = TRUE, cache = 0, 
-        cache.path = "Lecture-6_cache/html/", cache.vars = NULL, 
+        cache.path = "Lecture6_cache/html/", cache.vars = NULL, 
         cache.lazy = TRUE, dependson = NULL, autodep = FALSE, 
         cache.rebuild = FALSE, fig.keep = "high", fig.show = "asis", 
-        fig.align = "default", fig.path = "Lecture-6_files/figure-html/", 
+        fig.align = "default", fig.path = "Lecture6_files/figure-html/", 
         dev = "png", dev.args = NULL, dpi = 192, fig.ext = "png", 
         fig.width = 6.5, fig.height = 4, fig.env = "figure", 
         fig.cap = NULL, fig.scap = NULL, fig.lp = "fig:", fig.subcap = NULL, 
@@ -1544,8 +1570,14 @@ learnr:::store_exercise_cache(structure(list(label = "ex3", global_setup = struc
 "    }", "", "  } else {", "    message(\"DBI/RPostgres not available; disabling database features.\")", 
 "    use_database <- FALSE", "  }", "}", "", "## options", "knitr::opts_chunk$set(echo = TRUE)", 
 "tutorial_options(exercise.eval = FALSE, exercise.checker=FALSE)", 
-"", "## recording data", "## Write rsconnect manifest (safe if rsconnect not installed)", 
-"if (requireNamespace(\"rsconnect\", quietly = TRUE)) {", "  ## Write into this Rmd's own folder, not whatever the working directory", 
+"", "## recording data", "## Write rsconnect manifest only when NOT running live on Connect (Connect", 
+"## always mounts deployed content under /opt/rstudio-connect/) -- i.e. when", 
+"## someone is knitting/running this locally to regenerate the manifest before", 
+"## deploying. Avoids re-scanning the full package dependency tree on every", 
+"## cold process start in production", "running_on_connect <- startsWith(getwd(), \"/opt/rstudio-connect/\")", 
+"", "if (running_on_connect) {", "  message(\"Running on Connect; skipping writeManifest().\")", 
+"} else if (requireNamespace(\"rsconnect\", quietly = TRUE)) {", 
+"  ## Write into this Rmd's own folder, not whatever the working directory", 
 "  ## happens to be (e.g. the project root when run from RStudio).", 
 "  manifest_dir <- tryCatch(", "    dirname(knitr::current_input(dir = TRUE)),", 
 "    error = function(e) NA_character_", "  )", "  if (is.na(manifest_dir) || !nzchar(manifest_dir)) manifest_dir <- getwd()", 
@@ -1578,10 +1610,10 @@ learnr:::store_exercise_cache(structure(list(label = "ex3", global_setup = struc
         tidy = FALSE, tidy.opts = NULL, collapse = FALSE, prompt = FALSE, 
         comment = NA, highlight = FALSE, size = "normalsize", 
         background = "#F7F7F7", strip.white = TRUE, cache = 0, 
-        cache.path = "Lecture-6_cache/html/", cache.vars = NULL, 
+        cache.path = "Lecture6_cache/html/", cache.vars = NULL, 
         cache.lazy = TRUE, dependson = NULL, autodep = FALSE, 
         cache.rebuild = FALSE, fig.keep = "high", fig.show = "asis", 
-        fig.align = "default", fig.path = "Lecture-6_files/figure-html/", 
+        fig.align = "default", fig.path = "Lecture6_files/figure-html/", 
         dev = "png", dev.args = NULL, dpi = 192, fig.ext = "png", 
         fig.width = 6.5, fig.height = 4, fig.env = "figure", 
         fig.cap = NULL, fig.scap = NULL, fig.lp = "fig:", fig.subcap = NULL, 
@@ -1636,8 +1668,14 @@ learnr:::store_exercise_cache(structure(list(label = "ex4", global_setup = struc
 "    }", "", "  } else {", "    message(\"DBI/RPostgres not available; disabling database features.\")", 
 "    use_database <- FALSE", "  }", "}", "", "## options", "knitr::opts_chunk$set(echo = TRUE)", 
 "tutorial_options(exercise.eval = FALSE, exercise.checker=FALSE)", 
-"", "## recording data", "## Write rsconnect manifest (safe if rsconnect not installed)", 
-"if (requireNamespace(\"rsconnect\", quietly = TRUE)) {", "  ## Write into this Rmd's own folder, not whatever the working directory", 
+"", "## recording data", "## Write rsconnect manifest only when NOT running live on Connect (Connect", 
+"## always mounts deployed content under /opt/rstudio-connect/) -- i.e. when", 
+"## someone is knitting/running this locally to regenerate the manifest before", 
+"## deploying. Avoids re-scanning the full package dependency tree on every", 
+"## cold process start in production", "running_on_connect <- startsWith(getwd(), \"/opt/rstudio-connect/\")", 
+"", "if (running_on_connect) {", "  message(\"Running on Connect; skipping writeManifest().\")", 
+"} else if (requireNamespace(\"rsconnect\", quietly = TRUE)) {", 
+"  ## Write into this Rmd's own folder, not whatever the working directory", 
 "  ## happens to be (e.g. the project root when run from RStudio).", 
 "  manifest_dir <- tryCatch(", "    dirname(knitr::current_input(dir = TRUE)),", 
 "    error = function(e) NA_character_", "  )", "  if (is.na(manifest_dir) || !nzchar(manifest_dir)) manifest_dir <- getwd()", 
@@ -1670,10 +1708,10 @@ learnr:::store_exercise_cache(structure(list(label = "ex4", global_setup = struc
         tidy = FALSE, tidy.opts = NULL, collapse = FALSE, prompt = FALSE, 
         comment = NA, highlight = FALSE, size = "normalsize", 
         background = "#F7F7F7", strip.white = TRUE, cache = 0, 
-        cache.path = "Lecture-6_cache/html/", cache.vars = NULL, 
+        cache.path = "Lecture6_cache/html/", cache.vars = NULL, 
         cache.lazy = TRUE, dependson = NULL, autodep = FALSE, 
         cache.rebuild = FALSE, fig.keep = "high", fig.show = "asis", 
-        fig.align = "default", fig.path = "Lecture-6_files/figure-html/", 
+        fig.align = "default", fig.path = "Lecture6_files/figure-html/", 
         dev = "png", dev.args = NULL, dpi = 192, fig.ext = "png", 
         fig.width = 6.5, fig.height = 4, fig.env = "figure", 
         fig.cap = NULL, fig.scap = NULL, fig.lp = "fig:", fig.subcap = NULL, 
