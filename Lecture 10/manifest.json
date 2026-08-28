@@ -5455,7 +5455,7 @@
       "checksum": "54cbb416d131e9b3b42706489283c754"
     },
     "css/style.css": {
-      "checksum": "25c789397b46f9449350e3b8c07dcb85"
+      "checksum": "89b874d7fce7ec2d1cb6072a52278d1c"
     },
     "data/cub.csv": {
       "checksum": "d8d8175816a34566b1444235dde05e76"
@@ -5502,14 +5502,11 @@
     "images/yerkes-dodson.png": {
       "checksum": "c66dde5d13f022744d53299a12477f16"
     },
-    "lecture10.html": {
-      "checksum": "6aa55f12c14e470539b7ba80e13271be"
+    "Lecture10.html": {
+      "checksum": "207abd893eb109da6156714e4c62de8f"
     },
     "Lecture10.Rmd": {
-      "checksum": "f62dfb19ededa6f5d0156bad436b2934"
-    },
-    "student_progress.txt": {
-      "checksum": "920229ff221354165c23417c85b0fab5"
+      "checksum": "bbf755ee30f993949e406a902076029c"
     }
   },
   "users": null

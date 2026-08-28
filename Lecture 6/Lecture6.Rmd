@@ -491,7 +491,6 @@ summary(xmdl)
 
 
 
-
 ### What’s going on with our predictor?
 
 contrasts(my.df$sex)
@@ -530,6 +529,8 @@ F-statistic: 46.61 on 1 and 4 DF,  p-value: 0.002407
 - Run a linear regression using the `lm()` function
 - Interpret the output
 
+Note: In this online coding environment you do not need to load the data -- you can access it under the variable exam_data. However, do not forget to load the data and libraries when running RStudio on your computer! 
+
 ```{r ex1, exercise=TRUE}
 
 head(exam_data)
@@ -546,13 +547,11 @@ summary(mod1)
 #store
 ```
 
-### 1. Loading Exam Anxiety data
+### Exercise: Intercepts for continuous variables
 
-In this online coding environment it’s not needed to load the data, because they are pre-loaded. However, do not forget to load the data and libraries when running R studio on your computer! It's saved under variable exam_data
 
 ```{r ex11, exercise=TRUE}
 # Create dataframe
-head(exam_data)
 
 # Model pitch by sex
 
@@ -578,9 +577,6 @@ mean(my.df[my.df$sex=="female",]$pitch)
 ```{r ex11-check}
 #store
 ```
-
-
-
 
 
 
@@ -632,7 +628,7 @@ summary(xmdl)
 <img src="images/pitchcoefficients2.png" 
      style="max-width: 100%;" />
 
-### Continous data Exercise
+### Continous data exercise
 
 ```{r ex2, exercise=TRUE}
 # create new dataframe

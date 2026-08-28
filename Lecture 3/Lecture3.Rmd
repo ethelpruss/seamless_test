@@ -80,8 +80,16 @@ knitr::opts_chunk$set(echo = TRUE)
 tutorial_options(exercise.eval = FALSE, exercise.checker=FALSE)
 
 ## recording data
-## Write rsconnect manifest (safe if rsconnect not installed)
-if (requireNamespace("rsconnect", quietly = TRUE)) {
+## Write rsconnect manifest only when NOT running live on Connect (Connect
+## always mounts deployed content under /opt/rstudio-connect/) -- i.e. when
+## someone is knitting/running this locally to regenerate the manifest before
+## deploying. Avoids re-scanning the full package dependency tree on every
+## cold process start in production
+running_on_connect <- startsWith(getwd(), "/opt/rstudio-connect/")
+
+if (running_on_connect) {
+  message("Running on Connect; skipping writeManifest().")
+} else if (requireNamespace("rsconnect", quietly = TRUE)) {
   ## Write into this Rmd's own folder, not whatever the working directory
   ## happens to be (e.g. the project root when run from RStudio).
   manifest_dir <- tryCatch(
@@ -95,10 +103,6 @@ if (requireNamespace("rsconnect", quietly = TRUE)) {
   message("rsconnect not installed; skipping writeManifest()")
 }
 new_recorder <- function(tutorial_id, tutorial_version, user_id, event, data) {
-  # Always write to local log file
-  cat(user_id, ", ", event, ",", data$label, ", ", data$answer, ", ", data$correct, "\n",
-      sep = "", file = "student_progress.txt", append = TRUE)
-
   ## Only write to database for events that actually have a label (quiz/exercise
   ## events). learnr also fires housekeeping events like "session_start" and
   ## "section_skipped" with no label/question/answer/correct, which would

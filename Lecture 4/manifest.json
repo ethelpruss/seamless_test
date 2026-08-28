@@ -4,7 +4,7 @@
   "platform": "4.4.2",
   "metadata": {
     "appmode": "rmd-shiny",
-    "primary_rmd": "Lecture 4.Rmd",
+    "primary_rmd": "Lecture4.Rmd",
     "primary_html": null,
     "content_category": null,
     "has_parameters": false
@@ -3599,7 +3599,7 @@
       "checksum": "54cbb416d131e9b3b42706489283c754"
     },
     "css/style.css": {
-      "checksum": "25c789397b46f9449350e3b8c07dcb85"
+      "checksum": "89b874d7fce7ec2d1cb6072a52278d1c"
     },
     "data/Exam Anxiety.dat": {
       "checksum": "fbd57f95dfa32812f1809f7d99c5fffb"
@@ -3628,14 +3628,11 @@
     "images/varoverlap.png": {
       "checksum": "bb9f33319bea5850b46f69a8404ae5ed"
     },
-    "Lecture-4.html": {
-      "checksum": "76457b42d152e858b532c1983f070e87"
+    "Lecture4.html": {
+      "checksum": "8560ab96fbc4d608c5718c0ce0833a17"
     },
-    "Lecture 4.Rmd": {
-      "checksum": "ef54489c9f622f19839050ffb266f652"
-    },
-    "student_progress.txt": {
-      "checksum": "178eb850579603ba2ae5357b36d259aa"
+    "Lecture4.Rmd": {
+      "checksum": "d1e150eb3375027a114df0894522d38e"
     }
   },
   "users": null

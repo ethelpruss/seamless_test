@@ -228,3 +228,13 @@ code {
     color: whitesmoke;
 
 }
+
+/*------- Run Code / Submit Answer buttons -------*/
+/* learnr adds a purely cosmetic "disabled" class to these buttons before
+   first use (not the real HTML disabled attribute), making them look
+   greyed-out/unclickable even though they always work. Neutralize the
+   visual only -- no functional change. */
+.btn-tutorial-run.disabled {
+  opacity: 1 !important;
+  cursor: pointer !important;
+}

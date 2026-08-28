@@ -4824,7 +4824,7 @@
       "checksum": "54cbb416d131e9b3b42706489283c754"
     },
     "css/style.css": {
-      "checksum": "25c789397b46f9449350e3b8c07dcb85"
+      "checksum": "89b874d7fce7ec2d1cb6072a52278d1c"
     },
     "data/GPA.DATA.csv": {
       "checksum": "6ad7d8e8f33807781725d0527d482d0d"
@@ -4853,29 +4853,11 @@
     "images/slopeinterraction.png": {
       "checksum": "a5890ef312f2d970330c20a742a06566"
     },
-    "lecture8.html": {
-      "checksum": "f1a74e981e8d1f6519f309d8181b3cea"
+    "Lecture8.html": {
+      "checksum": "1554f67737d46544d64e7eebd99286bb"
     },
     "Lecture8.Rmd": {
-      "checksum": "678e800bcefd1881825a421b02500f41"
-    },
-    "lecture8_files/figure-html/Quiz1R-1.png": {
-      "checksum": "0648eedc2f622adce458b98735b1eaa1"
-    },
-    "lecture8_files/figure-html/Quiz2R-1.png": {
-      "checksum": "b43909bc8f5345e6ebeb34687e354dc8"
-    },
-    "lecture8_files/figure-html/Quiz3R-1.png": {
-      "checksum": "5e6f88ad9ae467acb4a00ac9fff81d05"
-    },
-    "lecture8_files/figure-html/Quiz4R-1.png": {
-      "checksum": "5d030cc3c0c0f8c0b817b0d385682a77"
-    },
-    "lecture8_files/figure-html/Quiz5R-1.png": {
-      "checksum": "c2ad50c2fb2112ca3c1ce914225b05c2"
-    },
-    "student_progress.txt": {
-      "checksum": "34b93a1082c74d4bb054988ec4280342"
+      "checksum": "b5263de592a798f2cb4a8f114a37c7c3"
     }
   },
   "users": null

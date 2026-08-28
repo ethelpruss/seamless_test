@@ -734,8 +734,16 @@ if (use_database) {
 knitr::opts_chunk$set(echo = TRUE)
 tutorial_options(exercise.eval = FALSE, exercise.checker=FALSE)
 
-## Write rsconnect manifest (safe if rsconnect not installed)
-if (requireNamespace("rsconnect", quietly = TRUE)) {
+## Write rsconnect manifest only when NOT running live on Connect (Connect
+## always mounts deployed content under /opt/rstudio-connect/) -- i.e. when
+## someone is knitting/running this locally to regenerate the manifest before
+## deploying. Avoids re-scanning the full package dependency tree on every
+## cold process start in production
+running_on_connect <- startsWith(getwd(), "/opt/rstudio-connect/")
+
+if (running_on_connect) {
+  message("Running on Connect; skipping writeManifest().")
+} else if (requireNamespace("rsconnect", quietly = TRUE)) {
   ## Write into this Rmd's own folder, not whatever the working directory
   ## happens to be (e.g. the project root when run from RStudio).
   manifest_dir <- tryCatch(
@@ -751,10 +759,6 @@ if (requireNamespace("rsconnect", quietly = TRUE)) {
 
 ## recording data
 new_recorder <- function(tutorial_id, tutorial_version, user_id, event, data) {
-  # Always write to local log file
-  cat(user_id, ", ", event, ",", data$label, ", ", data$answer, ", ", data$correct, "\n",
-      sep = "", file = "student_progress.txt", append = TRUE)
-
   ## Only write to database for events that actually have a label (quiz/exercise
   ## events). learnr also fires housekeeping events like "session_start" and
   ## "section_skipped" with no label/question/answer/correct, which would
@@ -804,19 +808,19 @@ session$onSessionEnded(function() {
  
 <script type="application/shiny-prerendered" data-context="server">
 learnr:::question_prerendered_chunk(structure(list(type = "learnr_radio", label = "Quiz1", question = structure("Which of the following types of correlation would you use if you want to examine the relationship between x and y, while controlling for the relationship of z on both x and y?", html = TRUE, class = c("html", 
-"character")), answers = list(structure(list(id = "lnr_ans_a695a52", 
+"character")), answers = list(structure(list(id = "lnr_ans_8630a14", 
     option = "Pearson correlation", value = "Pearson correlation", 
     label = structure("Pearson correlation", html = TRUE, class = c("html", 
     "character")), correct = FALSE, message = NULL, type = "literal"), class = c("tutorial_question_answer", 
-"tutorial_quiz_answer")), structure(list(id = "lnr_ans_3602123", 
+"tutorial_quiz_answer")), structure(list(id = "lnr_ans_f2a13ac", 
     option = "Partial correlation", value = "Partial correlation", 
     label = structure("Partial correlation", html = TRUE, class = c("html", 
     "character")), correct = TRUE, message = NULL, type = "literal"), class = c("tutorial_question_answer", 
-"tutorial_quiz_answer")), structure(list(id = "lnr_ans_c7ccf00", 
+"tutorial_quiz_answer")), structure(list(id = "lnr_ans_2ba8ca9", 
     option = "Spearman correlaton", value = "Spearman correlaton", 
     label = structure("Spearman correlaton", html = TRUE, class = c("html", 
     "character")), correct = FALSE, message = NULL, type = "literal"), class = c("tutorial_question_answer", 
-"tutorial_quiz_answer")), structure(list(id = "lnr_ans_528ac6a", 
+"tutorial_quiz_answer")), structure(list(id = "lnr_ans_31b2015", 
     option = "Semi-partial correlation", value = "Semi-partial correlation", 
     label = structure("Semi-partial correlation", html = TRUE, class = c("html", 
     "character")), correct = FALSE, message = NULL, type = "literal"), class = c("tutorial_question_answer", 
@@ -827,7 +831,7 @@ learnr:::question_prerendered_chunk(structure(list(type = "learnr_radio", label 
 "character")), incorrect = structure("Hint: Try again, you can pick another answer!", html = TRUE, class = c("html", 
 "character")), message = NULL, post_message = NULL), ids = list(
     answer = "Quiz1-answer", question = "Quiz1"), loading = NULL, 
-    random_answer_order = FALSE, allow_retry = TRUE, seed = 1634872580.2387, 
+    random_answer_order = FALSE, allow_retry = TRUE, seed = 1961824128.58645, 
     options = list()), class = c("learnr_radio", "tutorial_question"
 )), session = session)
 </script>
@@ -863,19 +867,19 @@ output$Q1 <- renderPlot({
  
 <script type="application/shiny-prerendered" data-context="server">
 learnr:::question_prerendered_chunk(structure(list(type = "learnr_radio", label = "Quiz2", question = structure("What correlation would be most appropriate for examining the relationship between ranking in a gaming competition and age, when the sample size is small?", html = TRUE, class = c("html", 
-"character")), answers = list(structure(list(id = "lnr_ans_e397b36", 
+"character")), answers = list(structure(list(id = "lnr_ans_80f12bf", 
     option = "Pearson correlation", value = "Pearson correlation", 
     label = structure("Pearson correlation", html = TRUE, class = c("html", 
     "character")), correct = FALSE, message = NULL, type = "literal"), class = c("tutorial_question_answer", 
-"tutorial_quiz_answer")), structure(list(id = "lnr_ans_163f122", 
+"tutorial_quiz_answer")), structure(list(id = "lnr_ans_cf71ef7", 
     option = "Partial correlation", value = "Partial correlation", 
     label = structure("Partial correlation", html = TRUE, class = c("html", 
     "character")), correct = FALSE, message = NULL, type = "literal"), class = c("tutorial_question_answer", 
-"tutorial_quiz_answer")), structure(list(id = "lnr_ans_7a96d9a", 
+"tutorial_quiz_answer")), structure(list(id = "lnr_ans_72430c9", 
     option = "Spearman correlaton", value = "Spearman correlaton", 
     label = structure("Spearman correlaton", html = TRUE, class = c("html", 
     "character")), correct = TRUE, message = NULL, type = "literal"), class = c("tutorial_question_answer", 
-"tutorial_quiz_answer")), structure(list(id = "lnr_ans_fe4bf56", 
+"tutorial_quiz_answer")), structure(list(id = "lnr_ans_e2b117f", 
     option = "Semi-partial correlation", value = "Semi-partial correlation", 
     label = structure("Semi-partial correlation", html = TRUE, class = c("html", 
     "character")), correct = FALSE, message = NULL, type = "literal"), class = c("tutorial_question_answer", 
@@ -886,7 +890,7 @@ learnr:::question_prerendered_chunk(structure(list(type = "learnr_radio", label 
 "character")), incorrect = structure("Hint: Try again, you can pick another answer!", html = TRUE, class = c("html", 
 "character")), message = NULL, post_message = NULL), ids = list(
     answer = "Quiz2-answer", question = "Quiz2"), loading = NULL, 
-    random_answer_order = FALSE, allow_retry = TRUE, seed = 329183802.346712, 
+    random_answer_order = FALSE, allow_retry = TRUE, seed = 147377737.931372, 
     options = list()), class = c("learnr_radio", "tutorial_question"
 )), session = session)
 </script>
@@ -922,16 +926,16 @@ output$Q2 <- renderPlot({
  
 <script type="application/shiny-prerendered" data-context="server">
 learnr:::question_prerendered_chunk(structure(list(type = "learnr_radio", label = "Quiz3", question = structure("Which letter is always used to specify the outcome variable in linear regression models?", html = TRUE, class = c("html", 
-"character")), answers = list(structure(list(id = "lnr_ans_e4b2a52", 
+"character")), answers = list(structure(list(id = "lnr_ans_fa5dd8b", 
     option = "b", value = "b", label = structure("b", html = TRUE, class = c("html", 
     "character")), correct = FALSE, message = NULL, type = "literal"), class = c("tutorial_question_answer", 
-"tutorial_quiz_answer")), structure(list(id = "lnr_ans_d8b49ca", 
+"tutorial_quiz_answer")), structure(list(id = "lnr_ans_570107", 
     option = "β", value = "β", label = structure("β", html = TRUE, class = c("html", 
     "character")), correct = FALSE, message = NULL, type = "literal"), class = c("tutorial_question_answer", 
-"tutorial_quiz_answer")), structure(list(id = "lnr_ans_6182ff4", 
+"tutorial_quiz_answer")), structure(list(id = "lnr_ans_eba91f", 
     option = "x", value = "x", label = structure("x", html = TRUE, class = c("html", 
     "character")), correct = FALSE, message = NULL, type = "literal"), class = c("tutorial_question_answer", 
-"tutorial_quiz_answer")), structure(list(id = "lnr_ans_c09e5ec", 
+"tutorial_quiz_answer")), structure(list(id = "lnr_ans_f52da5b", 
     option = "y", value = "y", label = structure("y", html = TRUE, class = c("html", 
     "character")), correct = TRUE, message = NULL, type = "literal"), class = c("tutorial_question_answer", 
 "tutorial_quiz_answer"))), button_labels = list(submit = structure("<span data-i18n=\"button.questionsubmit\">Submit Answer<\u002fspan>", html = TRUE, class = c("html", 
@@ -941,7 +945,7 @@ learnr:::question_prerendered_chunk(structure(list(type = "learnr_radio", label 
 "character")), incorrect = structure("Hint: Try again, you can pick another answer!", html = TRUE, class = c("html", 
 "character")), message = NULL, post_message = NULL), ids = list(
     answer = "Quiz3-answer", question = "Quiz3"), loading = NULL, 
-    random_answer_order = FALSE, allow_retry = TRUE, seed = 550656060.243581, 
+    random_answer_order = FALSE, allow_retry = TRUE, seed = 2057676011.54182, 
     options = list()), class = c("learnr_radio", "tutorial_question"
 )), session = session)
 </script>
@@ -1009,8 +1013,14 @@ learnr:::store_exercise_cache(structure(list(label = "ex11", global_setup = stru
 "    }", "", "  } else {", "    message(\"DBI/RPostgres not available; disabling database features.\")", 
 "    use_database <- FALSE", "  }", "}", "", "## options", "knitr::opts_chunk$set(echo = TRUE)", 
 "tutorial_options(exercise.eval = FALSE, exercise.checker=FALSE)", 
-"", "## Write rsconnect manifest (safe if rsconnect not installed)", 
-"if (requireNamespace(\"rsconnect\", quietly = TRUE)) {", "  ## Write into this Rmd's own folder, not whatever the working directory", 
+"", "## Write rsconnect manifest only when NOT running live on Connect (Connect", 
+"## always mounts deployed content under /opt/rstudio-connect/) -- i.e. when", 
+"## someone is knitting/running this locally to regenerate the manifest before", 
+"## deploying. Avoids re-scanning the full package dependency tree on every", 
+"## cold process start in production", "running_on_connect <- startsWith(getwd(), \"/opt/rstudio-connect/\")", 
+"", "if (running_on_connect) {", "  message(\"Running on Connect; skipping writeManifest().\")", 
+"} else if (requireNamespace(\"rsconnect\", quietly = TRUE)) {", 
+"  ## Write into this Rmd's own folder, not whatever the working directory", 
 "  ## happens to be (e.g. the project root when run from RStudio).", 
 "  manifest_dir <- tryCatch(", "    dirname(knitr::current_input(dir = TRUE)),", 
 "    error = function(e) NA_character_", "  )", "  if (is.na(manifest_dir) || !nzchar(manifest_dir)) manifest_dir <- getwd()", 
@@ -1018,9 +1028,7 @@ learnr:::store_exercise_cache(structure(list(label = "ex11", global_setup = stru
 "} else {", "  warning(\"rsconnect not installed; skipping writeManifest()\")", 
 "  message(\"rsconnect not installed; skipping writeManifest()\")", 
 "}", "", "## recording data", "new_recorder <- function(tutorial_id, tutorial_version, user_id, event, data) {", 
-"  # Always write to local log file", "  cat(user_id, \", \", event, \",\", data$label, \", \", data$answer, \", \", data$correct, \"\\n\",", 
-"      sep = \"\", file = \"student_progress.txt\", append = TRUE)", 
-"", "  ## Only write to database for events that actually have a label (quiz/exercise", 
+"  ## Only write to database for events that actually have a label (quiz/exercise", 
 "  ## events). learnr also fires housekeeping events like \"session_start\" and", 
 "  ## \"section_skipped\" with no label/question/answer/correct, which would", 
 "  ## otherwise violate the NOT NULL constraint on \"label\".", 
@@ -1043,10 +1051,10 @@ learnr:::store_exercise_cache(structure(list(label = "ex11", global_setup = stru
         tidy = FALSE, tidy.opts = NULL, collapse = FALSE, prompt = FALSE, 
         comment = NA, highlight = FALSE, size = "normalsize", 
         background = "#F7F7F7", strip.white = TRUE, cache = 0, 
-        cache.path = "Lecture-5_cache/html/", cache.vars = NULL, 
+        cache.path = "Lecture5_cache/html/", cache.vars = NULL, 
         cache.lazy = TRUE, dependson = NULL, autodep = FALSE, 
         cache.rebuild = FALSE, fig.keep = "high", fig.show = "asis", 
-        fig.align = "default", fig.path = "Lecture-5_files/figure-html/", 
+        fig.align = "default", fig.path = "Lecture5_files/figure-html/", 
         dev = "png", dev.args = NULL, dpi = 192, fig.ext = "png", 
         fig.width = 6.5, fig.height = 4, fig.env = "figure", 
         fig.cap = NULL, fig.scap = NULL, fig.lp = "fig:", fig.subcap = NULL, 
@@ -1099,8 +1107,14 @@ learnr:::store_exercise_cache(structure(list(label = "ex1", global_setup = struc
 "    }", "", "  } else {", "    message(\"DBI/RPostgres not available; disabling database features.\")", 
 "    use_database <- FALSE", "  }", "}", "", "## options", "knitr::opts_chunk$set(echo = TRUE)", 
 "tutorial_options(exercise.eval = FALSE, exercise.checker=FALSE)", 
-"", "## Write rsconnect manifest (safe if rsconnect not installed)", 
-"if (requireNamespace(\"rsconnect\", quietly = TRUE)) {", "  ## Write into this Rmd's own folder, not whatever the working directory", 
+"", "## Write rsconnect manifest only when NOT running live on Connect (Connect", 
+"## always mounts deployed content under /opt/rstudio-connect/) -- i.e. when", 
+"## someone is knitting/running this locally to regenerate the manifest before", 
+"## deploying. Avoids re-scanning the full package dependency tree on every", 
+"## cold process start in production", "running_on_connect <- startsWith(getwd(), \"/opt/rstudio-connect/\")", 
+"", "if (running_on_connect) {", "  message(\"Running on Connect; skipping writeManifest().\")", 
+"} else if (requireNamespace(\"rsconnect\", quietly = TRUE)) {", 
+"  ## Write into this Rmd's own folder, not whatever the working directory", 
 "  ## happens to be (e.g. the project root when run from RStudio).", 
 "  manifest_dir <- tryCatch(", "    dirname(knitr::current_input(dir = TRUE)),", 
 "    error = function(e) NA_character_", "  )", "  if (is.na(manifest_dir) || !nzchar(manifest_dir)) manifest_dir <- getwd()", 
@@ -1108,9 +1122,7 @@ learnr:::store_exercise_cache(structure(list(label = "ex1", global_setup = struc
 "} else {", "  warning(\"rsconnect not installed; skipping writeManifest()\")", 
 "  message(\"rsconnect not installed; skipping writeManifest()\")", 
 "}", "", "## recording data", "new_recorder <- function(tutorial_id, tutorial_version, user_id, event, data) {", 
-"  # Always write to local log file", "  cat(user_id, \", \", event, \",\", data$label, \", \", data$answer, \", \", data$correct, \"\\n\",", 
-"      sep = \"\", file = \"student_progress.txt\", append = TRUE)", 
-"", "  ## Only write to database for events that actually have a label (quiz/exercise", 
+"  ## Only write to database for events that actually have a label (quiz/exercise", 
 "  ## events). learnr also fires housekeeping events like \"session_start\" and", 
 "  ## \"section_skipped\" with no label/question/answer/correct, which would", 
 "  ## otherwise violate the NOT NULL constraint on \"label\".", 
@@ -1133,10 +1145,10 @@ learnr:::store_exercise_cache(structure(list(label = "ex1", global_setup = struc
         tidy = FALSE, tidy.opts = NULL, collapse = FALSE, prompt = FALSE, 
         comment = NA, highlight = FALSE, size = "normalsize", 
         background = "#F7F7F7", strip.white = TRUE, cache = 0, 
-        cache.path = "Lecture-5_cache/html/", cache.vars = NULL, 
+        cache.path = "Lecture5_cache/html/", cache.vars = NULL, 
         cache.lazy = TRUE, dependson = NULL, autodep = FALSE, 
         cache.rebuild = FALSE, fig.keep = "high", fig.show = "asis", 
-        fig.align = "default", fig.path = "Lecture-5_files/figure-html/", 
+        fig.align = "default", fig.path = "Lecture5_files/figure-html/", 
         dev = "png", dev.args = NULL, dpi = 192, fig.ext = "png", 
         fig.width = 6.5, fig.height = 4, fig.env = "figure", 
         fig.cap = NULL, fig.scap = NULL, fig.lp = "fig:", fig.subcap = NULL, 
@@ -1188,8 +1200,14 @@ learnr:::store_exercise_cache(structure(list(label = "ex2", global_setup = struc
 "    }", "", "  } else {", "    message(\"DBI/RPostgres not available; disabling database features.\")", 
 "    use_database <- FALSE", "  }", "}", "", "## options", "knitr::opts_chunk$set(echo = TRUE)", 
 "tutorial_options(exercise.eval = FALSE, exercise.checker=FALSE)", 
-"", "## Write rsconnect manifest (safe if rsconnect not installed)", 
-"if (requireNamespace(\"rsconnect\", quietly = TRUE)) {", "  ## Write into this Rmd's own folder, not whatever the working directory", 
+"", "## Write rsconnect manifest only when NOT running live on Connect (Connect", 
+"## always mounts deployed content under /opt/rstudio-connect/) -- i.e. when", 
+"## someone is knitting/running this locally to regenerate the manifest before", 
+"## deploying. Avoids re-scanning the full package dependency tree on every", 
+"## cold process start in production", "running_on_connect <- startsWith(getwd(), \"/opt/rstudio-connect/\")", 
+"", "if (running_on_connect) {", "  message(\"Running on Connect; skipping writeManifest().\")", 
+"} else if (requireNamespace(\"rsconnect\", quietly = TRUE)) {", 
+"  ## Write into this Rmd's own folder, not whatever the working directory", 
 "  ## happens to be (e.g. the project root when run from RStudio).", 
 "  manifest_dir <- tryCatch(", "    dirname(knitr::current_input(dir = TRUE)),", 
 "    error = function(e) NA_character_", "  )", "  if (is.na(manifest_dir) || !nzchar(manifest_dir)) manifest_dir <- getwd()", 
@@ -1197,9 +1215,7 @@ learnr:::store_exercise_cache(structure(list(label = "ex2", global_setup = struc
 "} else {", "  warning(\"rsconnect not installed; skipping writeManifest()\")", 
 "  message(\"rsconnect not installed; skipping writeManifest()\")", 
 "}", "", "## recording data", "new_recorder <- function(tutorial_id, tutorial_version, user_id, event, data) {", 
-"  # Always write to local log file", "  cat(user_id, \", \", event, \",\", data$label, \", \", data$answer, \", \", data$correct, \"\\n\",", 
-"      sep = \"\", file = \"student_progress.txt\", append = TRUE)", 
-"", "  ## Only write to database for events that actually have a label (quiz/exercise", 
+"  ## Only write to database for events that actually have a label (quiz/exercise", 
 "  ## events). learnr also fires housekeeping events like \"session_start\" and", 
 "  ## \"section_skipped\" with no label/question/answer/correct, which would", 
 "  ## otherwise violate the NOT NULL constraint on \"label\".", 
@@ -1222,10 +1238,10 @@ learnr:::store_exercise_cache(structure(list(label = "ex2", global_setup = struc
         tidy = FALSE, tidy.opts = NULL, collapse = FALSE, prompt = FALSE, 
         comment = NA, highlight = FALSE, size = "normalsize", 
         background = "#F7F7F7", strip.white = TRUE, cache = 0, 
-        cache.path = "Lecture-5_cache/html/", cache.vars = NULL, 
+        cache.path = "Lecture5_cache/html/", cache.vars = NULL, 
         cache.lazy = TRUE, dependson = NULL, autodep = FALSE, 
         cache.rebuild = FALSE, fig.keep = "high", fig.show = "asis", 
-        fig.align = "default", fig.path = "Lecture-5_files/figure-html/", 
+        fig.align = "default", fig.path = "Lecture5_files/figure-html/", 
         dev = "png", dev.args = NULL, dpi = 192, fig.ext = "png", 
         fig.width = 6.5, fig.height = 4, fig.env = "figure", 
         fig.cap = NULL, fig.scap = NULL, fig.lp = "fig:", fig.subcap = NULL, 

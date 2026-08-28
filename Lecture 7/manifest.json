@@ -4,7 +4,7 @@
   "platform": "4.4.2",
   "metadata": {
     "appmode": "rmd-shiny",
-    "primary_rmd": "Lecture 7.Rmd",
+    "primary_rmd": "Lecture7.Rmd",
     "primary_html": null,
     "content_category": null,
     "has_parameters": false
@@ -3578,7 +3578,7 @@
       "checksum": "54cbb416d131e9b3b42706489283c754"
     },
     "css/style.css": {
-      "checksum": "25c789397b46f9449350e3b8c07dcb85"
+      "checksum": "89b874d7fce7ec2d1cb6072a52278d1c"
     },
     "data/Album Sales 2.dat": {
       "checksum": "6a0a9e58b3680fc907c2826e3c5732c8"
@@ -3613,14 +3613,11 @@
     "images/visualizeregression.png": {
       "checksum": "2bfbb7440c4097063e95226175793131"
     },
-    "Lecture-7.html": {
-      "checksum": "5a22234d70ef611a1970c0c6c12660fb"
+    "Lecture7.html": {
+      "checksum": "08d47a2597258c5849ecb4a5609241e4"
     },
-    "Lecture 7.Rmd": {
-      "checksum": "3f2444eda818c9f42e6d9476908599a7"
-    },
-    "student_progress.txt": {
-      "checksum": "00a9a77620acc4afcc9d2bfbf43ba586"
+    "Lecture7.Rmd": {
+      "checksum": "13dde565a594f9e9a001e29fe36ffc91"
     }
   },
   "users": null

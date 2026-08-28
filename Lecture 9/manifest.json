@@ -3928,7 +3928,7 @@
       "checksum": "54cbb416d131e9b3b42706489283c754"
     },
     "css/style.css": {
-      "checksum": "25c789397b46f9449350e3b8c07dcb85"
+      "checksum": "89b874d7fce7ec2d1cb6072a52278d1c"
     },
     "images/logo.png": {
       "checksum": "c784a18f8817b64c372d02d533cd750a"
@@ -3951,14 +3951,11 @@
     "images/tableexcel.png": {
       "checksum": "055e8a705a8f92c1847673978dcf49a8"
     },
-    "lecture9.html": {
-      "checksum": "e33c234abce7844caa3a33275a496494"
+    "Lecture9.html": {
+      "checksum": "758bf6c9de85bd2d97c610be3f877c57"
     },
     "Lecture9.Rmd": {
-      "checksum": "1adfbe7f0dc6a783cd2f93c32c0d97d3"
-    },
-    "student_progress.txt": {
-      "checksum": "88ee654d3b1387f4244cfa80447983f5"
+      "checksum": "2da405565e21e8fe722c901910f88124"
     }
   },
   "users": null

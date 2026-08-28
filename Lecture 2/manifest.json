@@ -4,7 +4,7 @@
   "platform": "4.4.2",
   "metadata": {
     "appmode": "rmd-shiny",
-    "primary_rmd": "Lecture-2.Rmd",
+    "primary_rmd": "Lecture2.Rmd",
     "primary_html": null,
     "content_category": null,
     "has_parameters": false
@@ -4152,7 +4152,7 @@
       "checksum": "54cbb416d131e9b3b42706489283c754"
     },
     "css/style.css": {
-      "checksum": "25c789397b46f9449350e3b8c07dcb85"
+      "checksum": "89b874d7fce7ec2d1cb6072a52278d1c"
     },
     "images/accounting.png": {
       "checksum": "50dfb9dd058938a9ab258b6c75d2a2f7"
@@ -4250,14 +4250,11 @@
     "images/table4.png": {
       "checksum": "bda77b1cdd20c8cdea782471380a4445"
     },
-    "Lecture-2.html": {
-      "checksum": "4f3130632f49251e25832992b77a17d9"
+    "Lecture2.html": {
+      "checksum": "c6b1c30832a2b07cb10dd64bb7306e05"
     },
-    "Lecture-2.Rmd": {
-      "checksum": "8678908784d21327caa172c0324ce38d"
-    },
-    "student_progress.txt": {
-      "checksum": "adb332c6dbee5015d6a2dc05db59b93f"
+    "Lecture2.Rmd": {
+      "checksum": "8ae0ceddeb204334dc71f8bdb838ce85"
     }
   },
   "users": null

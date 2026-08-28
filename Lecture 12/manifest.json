@@ -3772,7 +3772,7 @@
       "checksum": "54cbb416d131e9b3b42706489283c754"
     },
     "css/style.css": {
-      "checksum": "406b8d38f768a041ff6a6d474b7ad530"
+      "checksum": "6285d370ae67374ed492eecac890e8b5"
     },
     "data/GrowthCurve_Examples.Rdata": {
       "checksum": "0c061bf2cc70f8bfcb41ee59af049b5c"
@@ -3823,10 +3823,10 @@
       "checksum": "c777e539b83110186b44c5d04685e456"
     },
     "Lecture12.html": {
-      "checksum": "ee1cf5609b562e3a37c93d5a92373c72"
+      "checksum": "87c7061f7863dd326826d25e00c446b7"
     },
     "Lecture12.Rmd": {
-      "checksum": "48fc19078430da67f215106da59eb772"
+      "checksum": "cb7bc9628b877ccb66940231d74c0f80"
     }
   },
   "users": null
