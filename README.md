@@ -2,7 +2,11 @@
 - Renv is based on R version 4.4.2 with downgraded packages (MASS to 7.3-60.0.1, Matrix to 1.6-5 and mcgv to 1.9-1)
 - Posit connect version: 4.2.3 -- source of potential compatibility issues that are currently handled in the renv.
 - Note: Check compatibility with 4.2.3 when adding new packages, both for the package itself and dependencies.
-- Note: Running a lecture .rmd (run document in Rstudio) locally automatically regenerates the mainfest.json file for that lecture; this is how updates/changes in pakcages are recorded. If the local environment is not compatible with the server then keeping the mainfest version in git and discarding local changes to mainfest.json might be a workaround.
+- Note: Running a lecture .rmd (run document in Rstudio) locally automatically regenerates the manifest.json file for that lecture; this is how updates/changes in packages are recorded. If the local environment is not compatible with the server then keeping the manifest version in git and discarding local changes to manifest.json might be a workaround.
+
+## General notes
+ 
+- Note: Loading will be faster for students (and you if you do it early enough) if you set min processes to 1 or more before the start of the lecture in the relevant lecture app, but it is best to set it back to 0 after the lecture is over, so past lectures don't stay active in the background taking up RAM. (Content -> open lecture -> gear icon -> runtime -> min processes : 1 -> save); if students still experience slow loading you can try 2-4. This is basically how many processes are preheated before anyone requests them. 4 accommodates the max amount of ~100 students.
 
 ## Instructions for local r environment
 How to get the same r environment:
@@ -36,7 +40,7 @@ Recommended set-up steps:
 - Set name (Content -> open lecture -> gear icon -> info -> insert name -> save)
 - Set access (Content -> open lecture -> gear icon -> access -> sharing -> all users -> save)
 - Set url (Content -> open lecture -> gear icon -> access ->  path -> course/lecture -> save)
-- Set runtime settings (Content -> open lecture -> gear icon -> runtime -> max processes : 4, max connections : 25, load factor : 0.75, initial timeout: 120, max ram: 1.5, default settings for rest -> save). Note: loading will be faster for students if you set min processes to 1 or 2 at the start of the lecture for that lecture, but it is best to set it back to 0 after the lecture, so the previous lecture doesn't stay active in the background taking up RAM.
+- Set runtime settings (Content -> open lecture -> gear icon -> runtime -> max processes : 4, max connections : 25, load factor : 0.75, initial timeout: 120, max ram: 1.5, default settings for rest -> save)
 - Set a tag (Content -> open lecture -> gear icon -> tag -> select -> save)
 
 ## Updating in Posit 
