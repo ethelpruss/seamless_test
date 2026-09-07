@@ -331,8 +331,8 @@ output$Q3 <- renderPlot({
 
 ## Z-test in R
 
-1. Randomly generate a vector in R from a normal distribution with mean of 55.4, n=30,sd=5.
-2. Install and load the BSDA package
+1. Randomly generate a vector in R from a normal distribution with mean of 55.4, n=30, sd=5.
+2. Install and load the `BSDA` package
 3. Check out the arguments for the `z.test()` function
 4. Come up with a null hypothesis and alternative hypothesis regarding your randomly generated vector using the following population parameters: H0 : μ0 = 50, σ = 20
 5. Use the `z.test()` function to test your hypothesis
@@ -378,7 +378,7 @@ $$t-statistic=\frac{\overline{x}-\mu_{0}}{\frac{S}{\sqrt{n}}}$$
 
 ## T-test in R
 
-1. Again, create a vector in R from a normal distribution with mean of 55.4, n=30,sd=5.
+1. Again, create a vector in R from a normal distribution with mean of 55.4, n=30, sd=5.
 2. Check out the arguments for the `t.test()` function
 3. Come up with a null hypothesis and alternative hypothesis regarding your randomly generated vector using the following population parameter: H0 : μ0 = 50
 4. Use the `t.test()` function to test your hypothesis
@@ -424,7 +424,7 @@ t.test(x=x,mu=50,conf.level=0.95,alternative='greater')
 
 ### Effect size exercises
 
-1. Install/load the ‘psych’ package
+1. Install/load the `psych` package
 2. Read about the `cohen.d()` function
 3. Load the sat.act data from the psych package into your global env.
 4. Calculate the effect size that gender has on each of the variables in the sat.act dataset
@@ -459,11 +459,8 @@ summary(cd)  #summarize the output
 
 ### Hypothesis Testing in a Model-Based Framework
 
-![](images/testframework.png)
+![](images/statsII-model-based.png)
 
-### Test ideas
-
-![](images/testideas.png)
 
 ## Correlation 
 
@@ -550,7 +547,7 @@ $cov_{x,y}=\frac{\sum(x_{i}-\bar{x})(y_{i}-\bar{y})}{N-1}\\=\frac{(-0.4)(-3)+(-1
 ### 1. Creating two variables
 
 ```{r ex2, exercise=TRUE}
-## creatge variables
+## create variables
 
 # Calculate the covariance of two variables
 
