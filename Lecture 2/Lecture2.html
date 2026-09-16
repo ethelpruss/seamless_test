@@ -1864,6 +1864,14 @@ session$onSessionEnded(function() {
 </script>
  
 <script type="application/shiny-prerendered" data-context="server">
+## Allow the client to resume this same session (preserving quiz/exercise
+## progress) after a brief websocket drop, instead of showing a dead-end
+## "Disconnected from server" banner that requires a full page reload.
+session$allowReconnect(TRUE)
+</script>
+
+
+<script type="application/shiny-prerendered" data-context="server">
 learnr:::question_prerendered_chunk(structure(list(type = "learnr_radio", label = "Quiz1", question = structure("What type of sampling is most commonly used in university settings?", html = TRUE, class = c("html", 
 "character")), answers = list(structure(list(id = "lnr_ans_aef0680", 
     option = "Snowball", value = "Snowball", label = structure("Snowball", html = TRUE, class = c("html", 
@@ -1891,8 +1899,7 @@ learnr:::question_prerendered_chunk(structure(list(type = "learnr_radio", label 
     options = list()), class = c("learnr_radio", "tutorial_question"
 )), session = session)
 </script>
-
-
+ 
 <script type="application/shiny-prerendered" data-context="server">
 
 output$Q1 <- renderPlot({
@@ -1920,7 +1927,8 @@ output$Q1 <- renderPlot({
     xlab("Percentage (%)") + ylab("Answer") + labs(fill = "Correct")
 })
 </script>
- 
+
+
 <script type="application/shiny-prerendered" data-context="server">
 learnr:::question_prerendered_chunk(structure(list(type = "learnr_radio", label = "Quiz2", question = structure("What is the common goal of doing empirical work utilizing statistics in CSAI?", html = TRUE, class = c("html", 
 "character")), answers = list(structure(list(id = "lnr_ans_8b02097", 
@@ -1944,8 +1952,7 @@ learnr:::question_prerendered_chunk(structure(list(type = "learnr_radio", label 
     options = list()), class = c("learnr_radio", "tutorial_question"
 )), session = session)
 </script>
-
-
+ 
 <script type="application/shiny-prerendered" data-context="server">
 
 output$Q2 <- renderPlot({
@@ -1973,7 +1980,8 @@ output$Q2 <- renderPlot({
     xlab("Percentage (%)") + ylab("Answer") + labs(fill = "Correct")
 })
 </script>
- 
+
+
 <script type="application/shiny-prerendered" data-context="server">
 learnr:::question_prerendered_chunk(structure(list(type = "learnr_radio", label = "Quiz3", question = structure("We use sample statistics to do which of the following regarding population parameters?", html = TRUE, class = c("html", 
 "character")), answers = list(structure(list(id = "lnr_ans_1314c74", 
@@ -1999,8 +2007,7 @@ learnr:::question_prerendered_chunk(structure(list(type = "learnr_radio", label 
     options = list()), class = c("learnr_radio", "tutorial_question"
 )), session = session)
 </script>
-
-
+ 
 <script type="application/shiny-prerendered" data-context="server">
 
 output$Q3 <- renderPlot({
@@ -2028,7 +2035,8 @@ output$Q3 <- renderPlot({
     xlab("Percentage (%)") + ylab("Answer") + labs(fill = "Correct")
 })
 </script>
- 
+
+
 <script type="application/shiny-prerendered" data-context="server">
 learnr:::question_prerendered_chunk(structure(list(type = "learnr_radio", label = "Quiz4", question = structure("As we increase the sample size, the sampling distribution of the mean becomes:", html = TRUE, class = c("html", 
 "character")), answers = list(structure(list(id = "lnr_ans_6d4a425", 
@@ -2054,8 +2062,7 @@ learnr:::question_prerendered_chunk(structure(list(type = "learnr_radio", label 
     options = list()), class = c("learnr_radio", "tutorial_question"
 )), session = session)
 </script>
-
-
+ 
 <script type="application/shiny-prerendered" data-context="server">
 
 output$Q4 <- renderPlot({
@@ -2083,7 +2090,8 @@ output$Q4 <- renderPlot({
     xlab("Percentage (%)") + ylab("Answer") + labs(fill = "Correct")
 })
 </script>
- 
+
+
 <script type="application/shiny-prerendered" data-context="server">
 learnr:::question_prerendered_chunk(structure(list(type = "learnr_radio", label = "Quiz5", question = structure("If I replicate a study 20 times, how many studies will have a mean not included in the 95% CI?", html = TRUE, class = c("html", 
 "character")), answers = list(structure(list(id = "lnr_ans_4f0bce3", 
@@ -2109,8 +2117,7 @@ learnr:::question_prerendered_chunk(structure(list(type = "learnr_radio", label 
     options = list()), class = c("learnr_radio", "tutorial_question"
 )), session = session)
 </script>
-
-
+ 
 <script type="application/shiny-prerendered" data-context="server">
 
 output$Q5 <- renderPlot({
@@ -2138,15 +2145,15 @@ output$Q5 <- renderPlot({
     xlab("Percentage (%)") + ylab("Answer") + labs(fill = "Correct")
 })
 </script>
- 
+
+
 <script type="application/shiny-prerendered" data-context="server">
 `tutorial-exercise-ex1-result` <- learnr:::setup_exercise_handler(reactive(req(input$`tutorial-exercise-ex1-code-editor`)), session)
 output$`tutorial-exercise-ex1-output` <- renderUI({
   `tutorial-exercise-ex1-result`()
 })
 </script>
-
-
+ 
 <script type="application/shiny-prerendered" data-context="server">
 learnr:::store_exercise_cache(structure(list(label = "ex1", global_setup = structure(c("## libraries", 
 "library(learnr)", "library(tidyr)", "library(dplyr)", "library(ggplot2)", 
@@ -2244,15 +2251,15 @@ learnr:::store_exercise_cache(structure(list(label = "ex1", global_setup = struc
         fig.num = 0, exercise.df_print = "paged"), engine = "r", 
     version = "4"), class = c("r", "tutorial_exercise")))
 </script>
- 
+
+
 <script type="application/shiny-prerendered" data-context="server">
 `tutorial-exercise-ex2-result` <- learnr:::setup_exercise_handler(reactive(req(input$`tutorial-exercise-ex2-code-editor`)), session)
 output$`tutorial-exercise-ex2-output` <- renderUI({
   `tutorial-exercise-ex2-result`()
 })
 </script>
-
-
+ 
 <script type="application/shiny-prerendered" data-context="server">
 learnr:::store_exercise_cache(structure(list(label = "ex2", global_setup = structure(c("## libraries", 
 "library(learnr)", "library(tidyr)", "library(dplyr)", "library(ggplot2)", 
@@ -2346,15 +2353,15 @@ learnr:::store_exercise_cache(structure(list(label = "ex2", global_setup = struc
         fig.num = 0, exercise.df_print = "paged"), engine = "r", 
     version = "4"), class = c("r", "tutorial_exercise")))
 </script>
- 
+
+
 <script type="application/shiny-prerendered" data-context="server">
 `tutorial-exercise-ex3-result` <- learnr:::setup_exercise_handler(reactive(req(input$`tutorial-exercise-ex3-code-editor`)), session)
 output$`tutorial-exercise-ex3-output` <- renderUI({
   `tutorial-exercise-ex3-result`()
 })
 </script>
-
-
+ 
 <script type="application/shiny-prerendered" data-context="server">
 learnr:::store_exercise_cache(structure(list(label = "ex3", global_setup = structure(c("## libraries", 
 "library(learnr)", "library(tidyr)", "library(dplyr)", "library(ggplot2)", 
@@ -2448,15 +2455,15 @@ learnr:::store_exercise_cache(structure(list(label = "ex3", global_setup = struc
         fig.num = 0, exercise.df_print = "paged"), engine = "r", 
     version = "4"), class = c("r", "tutorial_exercise")))
 </script>
- 
+
+
 <script type="application/shiny-prerendered" data-context="server">
 `tutorial-exercise-ex4-result` <- learnr:::setup_exercise_handler(reactive(req(input$`tutorial-exercise-ex4-code-editor`)), session)
 output$`tutorial-exercise-ex4-output` <- renderUI({
   `tutorial-exercise-ex4-result`()
 })
 </script>
-
-
+ 
 <script type="application/shiny-prerendered" data-context="server">
 learnr:::store_exercise_cache(structure(list(label = "ex4", global_setup = structure(c("## libraries", 
 "library(learnr)", "library(tidyr)", "library(dplyr)", "library(ggplot2)", 
@@ -2550,15 +2557,15 @@ learnr:::store_exercise_cache(structure(list(label = "ex4", global_setup = struc
         fig.num = 0, exercise.df_print = "paged"), engine = "r", 
     version = "4"), class = c("r", "tutorial_exercise")))
 </script>
- 
+
+
 <script type="application/shiny-prerendered" data-context="server">
 `tutorial-exercise-ex21-result` <- learnr:::setup_exercise_handler(reactive(req(input$`tutorial-exercise-ex21-code-editor`)), session)
 output$`tutorial-exercise-ex21-output` <- renderUI({
   `tutorial-exercise-ex21-result`()
 })
 </script>
-
-
+ 
 <script type="application/shiny-prerendered" data-context="server">
 learnr:::store_exercise_cache(structure(list(label = "ex21", global_setup = structure(c("## libraries", 
 "library(learnr)", "library(tidyr)", "library(dplyr)", "library(ggplot2)", 
@@ -2655,15 +2662,15 @@ learnr:::store_exercise_cache(structure(list(label = "ex21", global_setup = stru
         fig.num = 0, exercise.df_print = "paged"), engine = "r", 
     version = "4"), class = c("r", "tutorial_exercise")))
 </script>
- 
+
+
 <script type="application/shiny-prerendered" data-context="server">
 `tutorial-exercise-ex22-result` <- learnr:::setup_exercise_handler(reactive(req(input$`tutorial-exercise-ex22-code-editor`)), session)
 output$`tutorial-exercise-ex22-output` <- renderUI({
   `tutorial-exercise-ex22-result`()
 })
 </script>
-
-
+ 
 <script type="application/shiny-prerendered" data-context="server">
 learnr:::store_exercise_cache(structure(list(label = "ex22", global_setup = structure(c("## libraries", 
 "library(learnr)", "library(tidyr)", "library(dplyr)", "library(ggplot2)", 
@@ -2757,15 +2764,15 @@ learnr:::store_exercise_cache(structure(list(label = "ex22", global_setup = stru
         fig.num = 0, exercise.df_print = "paged"), engine = "r", 
     version = "4"), class = c("r", "tutorial_exercise")))
 </script>
- 
+
+
 <script type="application/shiny-prerendered" data-context="server">
 `tutorial-exercise-ex23-result` <- learnr:::setup_exercise_handler(reactive(req(input$`tutorial-exercise-ex23-code-editor`)), session)
 output$`tutorial-exercise-ex23-output` <- renderUI({
   `tutorial-exercise-ex23-result`()
 })
 </script>
-
-
+ 
 <script type="application/shiny-prerendered" data-context="server">
 learnr:::store_exercise_cache(structure(list(label = "ex23", global_setup = structure(c("## libraries", 
 "library(learnr)", "library(tidyr)", "library(dplyr)", "library(ggplot2)", 
@@ -2859,15 +2866,15 @@ learnr:::store_exercise_cache(structure(list(label = "ex23", global_setup = stru
         fig.num = 0, exercise.df_print = "paged"), engine = "r", 
     version = "4"), class = c("r", "tutorial_exercise")))
 </script>
- 
+
+
 <script type="application/shiny-prerendered" data-context="server">
 `tutorial-exercise-ex24-result` <- learnr:::setup_exercise_handler(reactive(req(input$`tutorial-exercise-ex24-code-editor`)), session)
 output$`tutorial-exercise-ex24-output` <- renderUI({
   `tutorial-exercise-ex24-result`()
 })
 </script>
-
-
+ 
 <script type="application/shiny-prerendered" data-context="server">
 learnr:::store_exercise_cache(structure(list(label = "ex24", global_setup = structure(c("## libraries", 
 "library(learnr)", "library(tidyr)", "library(dplyr)", "library(ggplot2)", 
@@ -2961,15 +2968,15 @@ learnr:::store_exercise_cache(structure(list(label = "ex24", global_setup = stru
         fig.num = 0, exercise.df_print = "paged"), engine = "r", 
     version = "4"), class = c("r", "tutorial_exercise")))
 </script>
- 
+
+
 <script type="application/shiny-prerendered" data-context="server">
 `tutorial-exercise-ex31-result` <- learnr:::setup_exercise_handler(reactive(req(input$`tutorial-exercise-ex31-code-editor`)), session)
 output$`tutorial-exercise-ex31-output` <- renderUI({
   `tutorial-exercise-ex31-result`()
 })
 </script>
-
-
+ 
 <script type="application/shiny-prerendered" data-context="server">
 learnr:::store_exercise_cache(structure(list(label = "ex31", global_setup = structure(c("## libraries", 
 "library(learnr)", "library(tidyr)", "library(dplyr)", "library(ggplot2)", 
@@ -3069,15 +3076,15 @@ learnr:::store_exercise_cache(structure(list(label = "ex31", global_setup = stru
         fig.num = 0, exercise.df_print = "paged"), engine = "r", 
     version = "4"), class = c("r", "tutorial_exercise")))
 </script>
- 
+
+
 <script type="application/shiny-prerendered" data-context="server">
 `tutorial-exercise-ex32-result` <- learnr:::setup_exercise_handler(reactive(req(input$`tutorial-exercise-ex32-code-editor`)), session)
 output$`tutorial-exercise-ex32-output` <- renderUI({
   `tutorial-exercise-ex32-result`()
 })
 </script>
-
-
+ 
 <script type="application/shiny-prerendered" data-context="server">
 learnr:::store_exercise_cache(structure(list(label = "ex32", global_setup = structure(c("## libraries", 
 "library(learnr)", "library(tidyr)", "library(dplyr)", "library(ggplot2)", 
@@ -3171,15 +3178,15 @@ learnr:::store_exercise_cache(structure(list(label = "ex32", global_setup = stru
         fig.num = 0, exercise.df_print = "paged"), engine = "r", 
     version = "4"), class = c("r", "tutorial_exercise")))
 </script>
- 
+
+
 <script type="application/shiny-prerendered" data-context="server">
 `tutorial-exercise-ex33-result` <- learnr:::setup_exercise_handler(reactive(req(input$`tutorial-exercise-ex33-code-editor`)), session)
 output$`tutorial-exercise-ex33-output` <- renderUI({
   `tutorial-exercise-ex33-result`()
 })
 </script>
-
-
+ 
 <script type="application/shiny-prerendered" data-context="server">
 learnr:::store_exercise_cache(structure(list(label = "ex33", global_setup = structure(c("## libraries", 
 "library(learnr)", "library(tidyr)", "library(dplyr)", "library(ggplot2)", 
@@ -3274,15 +3281,15 @@ learnr:::store_exercise_cache(structure(list(label = "ex33", global_setup = stru
     engine = "r", version = "4"), class = c("r", "tutorial_exercise"
 )))
 </script>
- 
+
+
 <script type="application/shiny-prerendered" data-context="server">
 `tutorial-exercise-ex34-result` <- learnr:::setup_exercise_handler(reactive(req(input$`tutorial-exercise-ex34-code-editor`)), session)
 output$`tutorial-exercise-ex34-output` <- renderUI({
   `tutorial-exercise-ex34-result`()
 })
 </script>
-
-
+ 
 <script type="application/shiny-prerendered" data-context="server">
 learnr:::store_exercise_cache(structure(list(label = "ex34", global_setup = structure(c("## libraries", 
 "library(learnr)", "library(tidyr)", "library(dplyr)", "library(ggplot2)", 
@@ -3376,15 +3383,15 @@ learnr:::store_exercise_cache(structure(list(label = "ex34", global_setup = stru
         fig.num = 0, exercise.df_print = "paged"), engine = "r", 
     version = "4"), class = c("r", "tutorial_exercise")))
 </script>
- 
+
+
 <script type="application/shiny-prerendered" data-context="server">
 `tutorial-exercise-ex41-result` <- learnr:::setup_exercise_handler(reactive(req(input$`tutorial-exercise-ex41-code-editor`)), session)
 output$`tutorial-exercise-ex41-output` <- renderUI({
   `tutorial-exercise-ex41-result`()
 })
 </script>
-
-
+ 
 <script type="application/shiny-prerendered" data-context="server">
 learnr:::store_exercise_cache(structure(list(label = "ex41", global_setup = structure(c("## libraries", 
 "library(learnr)", "library(tidyr)", "library(dplyr)", "library(ggplot2)", 
@@ -3478,15 +3485,15 @@ learnr:::store_exercise_cache(structure(list(label = "ex41", global_setup = stru
         fig.num = 0, exercise.df_print = "paged"), engine = "r", 
     version = "4"), class = c("r", "tutorial_exercise")))
 </script>
- 
+
+
 <script type="application/shiny-prerendered" data-context="server">
 `tutorial-exercise-ex42-result` <- learnr:::setup_exercise_handler(reactive(req(input$`tutorial-exercise-ex42-code-editor`)), session)
 output$`tutorial-exercise-ex42-output` <- renderUI({
   `tutorial-exercise-ex42-result`()
 })
 </script>
-
-
+ 
 <script type="application/shiny-prerendered" data-context="server">
 learnr:::store_exercise_cache(structure(list(label = "ex42", global_setup = structure(c("## libraries", 
 "library(learnr)", "library(tidyr)", "library(dplyr)", "library(ggplot2)", 
@@ -3581,15 +3588,15 @@ learnr:::store_exercise_cache(structure(list(label = "ex42", global_setup = stru
     engine = "r", version = "4"), class = c("r", "tutorial_exercise"
 )))
 </script>
- 
+
+
 <script type="application/shiny-prerendered" data-context="server">
 `tutorial-exercise-qnorm-result` <- learnr:::setup_exercise_handler(reactive(req(input$`tutorial-exercise-qnorm-code-editor`)), session)
 output$`tutorial-exercise-qnorm-output` <- renderUI({
   `tutorial-exercise-qnorm-result`()
 })
 </script>
-
-
+ 
 <script type="application/shiny-prerendered" data-context="server">
 learnr:::store_exercise_cache(structure(list(label = "qnorm", global_setup = structure(c("## libraries", 
 "library(learnr)", "library(tidyr)", "library(dplyr)", "library(ggplot2)", 
@@ -3683,15 +3690,15 @@ learnr:::store_exercise_cache(structure(list(label = "qnorm", global_setup = str
         fig.num = 0, exercise.df_print = "paged"), engine = "r", 
     version = "4"), class = c("r", "tutorial_exercise")))
 </script>
- 
+
+
 <script type="application/shiny-prerendered" data-context="server">
 `tutorial-exercise-ex52-result` <- learnr:::setup_exercise_handler(reactive(req(input$`tutorial-exercise-ex52-code-editor`)), session)
 output$`tutorial-exercise-ex52-output` <- renderUI({
   `tutorial-exercise-ex52-result`()
 })
 </script>
-
-
+ 
 <script type="application/shiny-prerendered" data-context="server">
 learnr:::store_exercise_cache(structure(list(label = "ex52", global_setup = structure(c("## libraries", 
 "library(learnr)", "library(tidyr)", "library(dplyr)", "library(ggplot2)", 
@@ -3786,15 +3793,15 @@ learnr:::store_exercise_cache(structure(list(label = "ex52", global_setup = stru
         fig.num = 0, exercise.df_print = "paged"), engine = "r", 
     version = "4"), class = c("r", "tutorial_exercise")))
 </script>
- 
+
+
 <script type="application/shiny-prerendered" data-context="server">
 `tutorial-exercise-ex80-result` <- learnr:::setup_exercise_handler(reactive(req(input$`tutorial-exercise-ex80-code-editor`)), session)
 output$`tutorial-exercise-ex80-output` <- renderUI({
   `tutorial-exercise-ex80-result`()
 })
 </script>
-
-
+ 
 <script type="application/shiny-prerendered" data-context="server">
 learnr:::store_exercise_cache(structure(list(label = "ex80", global_setup = structure(c("## libraries", 
 "library(learnr)", "library(tidyr)", "library(dplyr)", "library(ggplot2)", 
@@ -3891,15 +3898,15 @@ learnr:::store_exercise_cache(structure(list(label = "ex80", global_setup = stru
         fig.num = 0, exercise.df_print = "paged"), engine = "r", 
     version = "4"), class = c("r", "tutorial_exercise")))
 </script>
- 
+
+
 <script type="application/shiny-prerendered" data-context="server">
 `tutorial-exercise-ex81-result` <- learnr:::setup_exercise_handler(reactive(req(input$`tutorial-exercise-ex81-code-editor`)), session)
 output$`tutorial-exercise-ex81-output` <- renderUI({
   `tutorial-exercise-ex81-result`()
 })
 </script>
-
-
+ 
 <script type="application/shiny-prerendered" data-context="server">
 learnr:::store_exercise_cache(structure(list(label = "ex81", global_setup = structure(c("## libraries", 
 "library(learnr)", "library(tidyr)", "library(dplyr)", "library(ggplot2)", 
@@ -3993,15 +4000,15 @@ learnr:::store_exercise_cache(structure(list(label = "ex81", global_setup = stru
         fig.num = 0, exercise.df_print = "paged"), engine = "r", 
     version = "4"), class = c("r", "tutorial_exercise")))
 </script>
- 
+
+
 <script type="application/shiny-prerendered" data-context="server">
 `tutorial-exercise-ex82-result` <- learnr:::setup_exercise_handler(reactive(req(input$`tutorial-exercise-ex82-code-editor`)), session)
 output$`tutorial-exercise-ex82-output` <- renderUI({
   `tutorial-exercise-ex82-result`()
 })
 </script>
-
-
+ 
 <script type="application/shiny-prerendered" data-context="server">
 learnr:::store_exercise_cache(structure(list(label = "ex82", global_setup = structure(c("## libraries", 
 "library(learnr)", "library(tidyr)", "library(dplyr)", "library(ggplot2)", 
@@ -4095,15 +4102,15 @@ learnr:::store_exercise_cache(structure(list(label = "ex82", global_setup = stru
         fig.num = 0, exercise.df_print = "paged"), engine = "r", 
     version = "4"), class = c("r", "tutorial_exercise")))
 </script>
- 
+
+
 <script type="application/shiny-prerendered" data-context="server">
 `tutorial-exercise-ex83-result` <- learnr:::setup_exercise_handler(reactive(req(input$`tutorial-exercise-ex83-code-editor`)), session)
 output$`tutorial-exercise-ex83-output` <- renderUI({
   `tutorial-exercise-ex83-result`()
 })
 </script>
-
-
+ 
 <script type="application/shiny-prerendered" data-context="server">
 learnr:::store_exercise_cache(structure(list(label = "ex83", global_setup = structure(c("## libraries", 
 "library(learnr)", "library(tidyr)", "library(dplyr)", "library(ggplot2)", 
@@ -4197,15 +4204,15 @@ learnr:::store_exercise_cache(structure(list(label = "ex83", global_setup = stru
         fig.num = 0, exercise.df_print = "paged"), engine = "r", 
     version = "4"), class = c("r", "tutorial_exercise")))
 </script>
- 
+
+
 <script type="application/shiny-prerendered" data-context="server">
 `tutorial-exercise-ex84-result` <- learnr:::setup_exercise_handler(reactive(req(input$`tutorial-exercise-ex84-code-editor`)), session)
 output$`tutorial-exercise-ex84-output` <- renderUI({
   `tutorial-exercise-ex84-result`()
 })
 </script>
-
-
+ 
 <script type="application/shiny-prerendered" data-context="server">
 learnr:::store_exercise_cache(structure(list(label = "ex84", global_setup = structure(c("## libraries", 
 "library(learnr)", "library(tidyr)", "library(dplyr)", "library(ggplot2)", 
@@ -4299,15 +4306,15 @@ learnr:::store_exercise_cache(structure(list(label = "ex84", global_setup = stru
         fig.num = 0, exercise.df_print = "paged"), engine = "r", 
     version = "4"), class = c("r", "tutorial_exercise")))
 </script>
- 
+
+
 <script type="application/shiny-prerendered" data-context="server">
 `tutorial-exercise-ex85-result` <- learnr:::setup_exercise_handler(reactive(req(input$`tutorial-exercise-ex85-code-editor`)), session)
 output$`tutorial-exercise-ex85-output` <- renderUI({
   `tutorial-exercise-ex85-result`()
 })
 </script>
-
-
+ 
 <script type="application/shiny-prerendered" data-context="server">
 learnr:::store_exercise_cache(structure(list(label = "ex85", global_setup = structure(c("## libraries", 
 "library(learnr)", "library(tidyr)", "library(dplyr)", "library(ggplot2)", 
@@ -4402,15 +4409,15 @@ learnr:::store_exercise_cache(structure(list(label = "ex85", global_setup = stru
     engine = "r", version = "4"), class = c("r", "tutorial_exercise"
 )))
 </script>
- 
+
+
 <script type="application/shiny-prerendered" data-context="server">
 `tutorial-exercise-ex86-result` <- learnr:::setup_exercise_handler(reactive(req(input$`tutorial-exercise-ex86-code-editor`)), session)
 output$`tutorial-exercise-ex86-output` <- renderUI({
   `tutorial-exercise-ex86-result`()
 })
 </script>
-
-
+ 
 <script type="application/shiny-prerendered" data-context="server">
 learnr:::store_exercise_cache(structure(list(label = "ex86", global_setup = structure(c("## libraries", 
 "library(learnr)", "library(tidyr)", "library(dplyr)", "library(ggplot2)", 
@@ -4505,15 +4512,15 @@ learnr:::store_exercise_cache(structure(list(label = "ex86", global_setup = stru
     engine = "r", version = "4"), class = c("r", "tutorial_exercise"
 )))
 </script>
- 
+
+
 <script type="application/shiny-prerendered" data-context="server">
 `tutorial-exercise-ex87-result` <- learnr:::setup_exercise_handler(reactive(req(input$`tutorial-exercise-ex87-code-editor`)), session)
 output$`tutorial-exercise-ex87-output` <- renderUI({
   `tutorial-exercise-ex87-result`()
 })
 </script>
-
-
+ 
 <script type="application/shiny-prerendered" data-context="server">
 learnr:::store_exercise_cache(structure(list(label = "ex87", global_setup = structure(c("## libraries", 
 "library(learnr)", "library(tidyr)", "library(dplyr)", "library(ggplot2)", 
@@ -4608,15 +4615,15 @@ learnr:::store_exercise_cache(structure(list(label = "ex87", global_setup = stru
     engine = "r", version = "4"), class = c("r", "tutorial_exercise"
 )))
 </script>
- 
+
+
 <script type="application/shiny-prerendered" data-context="server">
 `tutorial-exercise-ex88-result` <- learnr:::setup_exercise_handler(reactive(req(input$`tutorial-exercise-ex88-code-editor`)), session)
 output$`tutorial-exercise-ex88-output` <- renderUI({
   `tutorial-exercise-ex88-result`()
 })
 </script>
-
-
+ 
 <script type="application/shiny-prerendered" data-context="server">
 learnr:::store_exercise_cache(structure(list(label = "ex88", global_setup = structure(c("## libraries", 
 "library(learnr)", "library(tidyr)", "library(dplyr)", "library(ggplot2)", 
@@ -4710,15 +4717,15 @@ learnr:::store_exercise_cache(structure(list(label = "ex88", global_setup = stru
         fig.num = 0, exercise.df_print = "paged"), engine = "r", 
     version = "4"), class = c("r", "tutorial_exercise")))
 </script>
- 
+
+
 <script type="application/shiny-prerendered" data-context="server">
 `tutorial-exercise-ex61-result` <- learnr:::setup_exercise_handler(reactive(req(input$`tutorial-exercise-ex61-code-editor`)), session)
 output$`tutorial-exercise-ex61-output` <- renderUI({
   `tutorial-exercise-ex61-result`()
 })
 </script>
-
-
+ 
 <script type="application/shiny-prerendered" data-context="server">
 learnr:::store_exercise_cache(structure(list(label = "ex61", global_setup = structure(c("## libraries", 
 "library(learnr)", "library(tidyr)", "library(dplyr)", "library(ggplot2)", 
@@ -4818,15 +4825,15 @@ learnr:::store_exercise_cache(structure(list(label = "ex61", global_setup = stru
     engine = "r", version = "4"), class = c("r", "tutorial_exercise"
 )))
 </script>
- 
+
+
 <script type="application/shiny-prerendered" data-context="server">
 `tutorial-exercise-ex69-result` <- learnr:::setup_exercise_handler(reactive(req(input$`tutorial-exercise-ex69-code-editor`)), session)
 output$`tutorial-exercise-ex69-output` <- renderUI({
   `tutorial-exercise-ex69-result`()
 })
 </script>
-
-
+ 
 <script type="application/shiny-prerendered" data-context="server">
 learnr:::store_exercise_cache(structure(list(label = "ex69", global_setup = structure(c("## libraries", 
 "library(learnr)", "library(tidyr)", "library(dplyr)", "library(ggplot2)", 
@@ -4925,15 +4932,15 @@ learnr:::store_exercise_cache(structure(list(label = "ex69", global_setup = stru
     engine = "r", version = "4"), class = c("r", "tutorial_exercise"
 )))
 </script>
- 
+
+
 <script type="application/shiny-prerendered" data-context="server">
 `tutorial-exercise-ex71-result` <- learnr:::setup_exercise_handler(reactive(req(input$`tutorial-exercise-ex71-code-editor`)), session)
 output$`tutorial-exercise-ex71-output` <- renderUI({
   `tutorial-exercise-ex71-result`()
 })
 </script>
-
-
+ 
 <script type="application/shiny-prerendered" data-context="server">
 learnr:::store_exercise_cache(structure(list(label = "ex71", global_setup = structure(c("## libraries", 
 "library(learnr)", "library(tidyr)", "library(dplyr)", "library(ggplot2)", 
