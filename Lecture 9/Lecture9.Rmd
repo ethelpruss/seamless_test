@@ -133,6 +133,12 @@ data(BMI)
 
 ```
 
+```{r, session-reconnect, context="server", echo=FALSE}
+## Allow the client to resume this same session (preserving quiz/exercise
+## progress) after a brief websocket drop, instead of showing a dead-end
+## "Disconnected from server" banner that requires a full page reload.
+session$allowReconnect(TRUE)
+```
 
 ## 1. Introduction
 
