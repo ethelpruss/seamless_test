@@ -6,6 +6,7 @@
 
 ## General notes
  
+- If you get "An error has occurred - The application failed to start." waiting a second and reloading the page usually fixes it; seems to be the server.
 - Note: Loading will be faster for students (and you if you do it early enough) if you set min processes to 1 or more before the start of the lecture in the relevant lecture app, but it is best to set it back to 0 after the lecture is over, so past lectures don't stay active in the background taking up RAM. (Content -> open lecture -> gear icon -> runtime -> min processes : 1 -> save); if students still experience slow loading you can try 2-4. This is basically how many processes are preheated before anyone requests them. 4 accommodates the max amount of ~100 students.
 
 ## Instructions for local r environment
