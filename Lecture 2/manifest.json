@@ -387,19 +387,18 @@
         "Collate": "'datasets.R'",
         "RoxygenNote": "7.3.1",
         "URL": "https://middleton-lab.github.io/abdData/",
+        "Built": "R 4.4.2; ; 2026-09-16 10:17:56 UTC; windows",
         "RemoteType": "github",
         "RemoteHost": "api.github.com",
-        "RemoteRepo": "abdData",
         "RemoteUsername": "Middleton-Lab",
-        "RemoteRef": "HEAD",
+        "RemoteRepo": "abdData",
+        "RemoteRef": "main",
         "RemoteSha": "d52a49cff9adce4f7fa6349e0d1607faf1d7946e",
+        "GithubHost": "api.github.com",
         "GithubRepo": "abdData",
         "GithubUsername": "Middleton-Lab",
-        "GithubRef": "HEAD",
-        "GithubSHA1": "d52a49cff9adce4f7fa6349e0d1607faf1d7946e",
-        "NeedsCompilation": "no",
-        "Packaged": "2026-08-25 13:05:58 UTC; mvr624",
-        "Built": "R 4.4.2; ; 2026-08-25 13:06:00 UTC; windows"
+        "GithubRef": "main",
+        "GithubSHA1": "d52a49cff9adce4f7fa6349e0d1607faf1d7946e"
       }
     },
     "askpass": {
@@ -3735,10 +3734,9 @@
         "Maintainer": "Homer White <homehanumat@gmail.com>",
         "Description": "A collection of data sets and functions that are useful in the\n    teaching of statistics at an elementary level to students who may have\n    little or no previous experience with the command line.  The functions for\n    elementary inferential procedures follow a uniform interface for user\n    input.  Some of the functions are instructional applets that can only be\n    run on the R Studio integrated development environment with package\n    'manipulate' installed.  Other instructional applets are Shiny apps\n    that may be run locally. In teaching the package is used alongside of\n    package 'mosaic', 'mosaicData' and 'abd', which are therefore listed as\n    dependencies.",
         "License": "GPL (>=3)",
-        "Depends": "R(>= 3.5.0), abdData, mosaic, mosaicData",
-        "Imports": "ggplot2, lattice, manipulate, MASS, methods, rlang",
-        "Suggests": "knitr, shiny, shinyjs",
-        "Remotes": "github::Middleton-Lab/abdData",
+        "Depends": "R(>= 3.5.0),\nabdData,\nmosaic,\nmosaicData",
+        "Imports": "ggplot2,\nlattice,\nmanipulate,\nMASS,\nmethods,\nrlang",
+        "Suggests": "knitr,\nshiny,\nshinyjs",
         "LazyLoad": "yes",
         "LazyData": "true",
         "Encoding": "UTF-8",
@@ -3746,18 +3744,19 @@
         "RoxygenNote": "7.3.2",
         "URL": "https://github.com/homerhanumat/tigerstats",
         "BugReports": "https://github.com/homerhanumat/tigerstats/issues",
+        "Built": "R 4.4.2; ; 2026-09-16 10:18:14 UTC; windows",
         "RemoteType": "github",
         "RemoteHost": "api.github.com",
-        "RemoteRepo": "tigerstats",
         "RemoteUsername": "homerhanumat",
-        "RemoteRef": "HEAD",
+        "RemoteRepo": "tigerstats",
+        "RemoteRef": "master",
         "RemoteSha": "f00e62864eb81d0983237edcddb1aad2a9b8ca6f",
+        "GithubHost": "api.github.com",
         "GithubRepo": "tigerstats",
         "GithubUsername": "homerhanumat",
-        "GithubRef": "HEAD",
+        "GithubRef": "master",
         "GithubSHA1": "f00e62864eb81d0983237edcddb1aad2a9b8ca6f",
-        "Packaged": "2026-08-25 13:06:57 UTC; mvr624",
-        "Built": "R 4.4.2; ; 2026-08-25 13:06:58 UTC; windows"
+        "Remotes": "github::Middleton-Lab/abdData"
       }
     },
     "timechange": {
@@ -4251,10 +4250,10 @@
       "checksum": "bda77b1cdd20c8cdea782471380a4445"
     },
     "Lecture2.html": {
-      "checksum": "c6b1c30832a2b07cb10dd64bb7306e05"
+      "checksum": "8f36e29de6567a65baf74fe234b21eaf"
     },
     "Lecture2.Rmd": {
-      "checksum": "8ae0ceddeb204334dc71f8bdb838ce85"
+      "checksum": "1b44b4edc09cf23a5383299de2ef7688"
     }
   },
   "users": null
