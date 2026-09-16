@@ -190,12 +190,14 @@ What we will cover today:
 #### 1. Which of the following would be a good coding system to use for categorical regression when you want to ensure your sample reflects the distribution of a group in the population?
 
 ```{r, Quiz1O, echo = FALSE}
+actionButton("refreshQ1", "Refresh", class = "btn-refresh-plot")
 plotOutput("Q1")
 ```
 
 ```{r, Quiz1R, context="server", echo = FALSE, warning = FALSE, message=FALSE, out.width="100%", fig.align = "center"}
 
 output$Q1 <- renderPlot({
+  input$refreshQ1
   if (!(use_database && !is.null(conn))) return(NULL)
   
   data <- DBI::dbGetQuery(conn, "SELECT * FROM statistics2_module10")

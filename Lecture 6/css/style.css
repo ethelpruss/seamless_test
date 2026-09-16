@@ -238,3 +238,10 @@ code {
   opacity: 1 !important;
   cursor: pointer !important;
 }
+
+/*------- Quiz results "Refresh" button -------*/
+/* Sits directly above plotOutput with no gap, so the plot can visually
+   overlap its bottom edge. Add breathing room below it. */
+.btn-refresh-plot {
+  margin-bottom: 12px;
+}

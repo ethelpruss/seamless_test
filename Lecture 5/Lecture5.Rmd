@@ -183,12 +183,14 @@ HTML("  <div class='jumbotron jumbotron-fluid'>
 #### 1. Which of the following types of correlation would you use if you want to examine the relationship between x and y, while controlling for the relationship of z on both x and y?
 
 ```{r, Quiz1O, echo = FALSE}
+actionButton("refreshQ1", "Refresh", class = "btn-refresh-plot")
 plotOutput("Q1")
 ```
 
 ```{r, Quiz1R, context="server", echo = FALSE, warning = FALSE, message=FALSE, out.width="100%", fig.align = "center"}
 
 output$Q1 <- renderPlot({
+  input$refreshQ1
   if (!(use_database && !is.null(conn))) return(NULL)
   
   data <- DBI::dbGetQuery(conn, "SELECT * FROM statistics2_module5")
@@ -231,12 +233,14 @@ output$Q1 <- renderPlot({
 #### 2. What correlation would be most appropriate for examining the relationship between ranking in a gaming competition and age, when the sample size is small?
 
 ```{r, Quiz2O, echo = FALSE}
+actionButton("refreshQ2", "Refresh", class = "btn-refresh-plot")
 plotOutput("Q2")
 ```
 
 ```{r, Quiz2R, context="server", echo = FALSE, warning = FALSE, message=FALSE, out.width="100%", fig.align = "center"}
 
 output$Q2 <- renderPlot({
+  input$refreshQ2
   if (!(use_database && !is.null(conn))) return(NULL)
   
   data <- DBI::dbGetQuery(conn, "SELECT * FROM statistics2_module5")
@@ -280,12 +284,14 @@ output$Q2 <- renderPlot({
 #### 3. Which letter is always used to specify the outcome variable in linear regression models?
 
 ```{r, Quiz3O, echo = FALSE}
+actionButton("refreshQ3", "Refresh", class = "btn-refresh-plot")
 plotOutput("Q3")
 ```
 
 ```{r, Quiz3R, context="server", echo = FALSE, warning = FALSE, message=FALSE, out.width="100%", fig.align = "center"}
 
 output$Q3 <- renderPlot({
+  input$refreshQ3
   if (!(use_database && !is.null(conn))) return(NULL)
   data <- DBI::dbGetQuery(conn, "SELECT * FROM statistics2_module5")
   

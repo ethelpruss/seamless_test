@@ -188,12 +188,14 @@ What we will cover today:
 #### 1. How do you estimate the amount of overlap in variance between two variables using the correlation (r)?
 
 ```{r, Quiz1O, echo = FALSE}
+actionButton("refreshQ1", "Refresh", class = "btn-refresh-plot")
 plotOutput("Q1")
 ```
 
 ```{r, Quiz1R, context="server", echo = FALSE, warning = FALSE, message=FALSE, out.width="100%", fig.align = "center"}
 
 output$Q1 <- renderPlot({
+  input$refreshQ1
   if (!(use_database && !is.null(conn))) return(NULL)
   
   data <- DBI::dbGetQuery(conn, "SELECT * FROM statistics2_module4")
@@ -237,12 +239,14 @@ perceived pain is .7. What size effect is this?",
 #### 2. An estimate of the the correlation between Scoville Heat Units in various chili peppers and perceived pain is .7. What size effect is this?
 
 ```{r, Quiz2O, echo = FALSE}
+actionButton("refreshQ2", "Refresh", class = "btn-refresh-plot")
 plotOutput("Q2")
 ```
 
 ```{r, Quiz2R, context="server", echo = FALSE, warning = FALSE, message=FALSE, out.width="100%", fig.align = "center"}
 
 output$Q2 <- renderPlot({
+  input$refreshQ2
   if (!(use_database && !is.null(conn))) return(NULL)
   
   data <- DBI::dbGetQuery(conn, "SELECT * FROM statistics2_module4")
@@ -285,12 +289,14 @@ output$Q2 <- renderPlot({
 #### 3. The null hypothesis for a correlation test is which of the following?
 
 ```{r, Quiz3O, echo = FALSE}
+actionButton("refreshQ3", "Refresh", class = "btn-refresh-plot")
 plotOutput("Q3")
 ```
 
 ```{r, Quiz3R, context="server", echo = FALSE, warning = FALSE, message=FALSE, out.width="100%", fig.align = "center"}
 
 output$Q3 <- renderPlot({
+  input$refreshQ3
   if (!(use_database && !is.null(conn))) return(NULL)
   data <- DBI::dbGetQuery(conn, "SELECT * FROM statistics2_module4")
   
@@ -338,12 +344,14 @@ question("How glad are you to have the option to attend lectures on campus?",
 #### 4. How glad are you to have the option to attend lectures on campus?
 
 ```{r, Quiz4O, echo = FALSE}
+actionButton("refreshQ4", "Refresh", class = "btn-refresh-plot")
 plotOutput("Q4")
 ```
 
 ```{r, Quiz4R, context="server", echo = FALSE, warning = FALSE, message=FALSE, out.width="100%", fig.align = "center"}
 
 output$Q4 <- renderPlot({
+  input$refreshQ4
   if (!(use_database && !is.null(conn))) return(NULL)
   data <- DBI::dbGetQuery(conn, "SELECT * FROM statistics2_module4")
   
