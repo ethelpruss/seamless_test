@@ -212,7 +212,7 @@ question("What type of sampling is most commonly used in university settings?",
 #### 1. What type of sampling is most commonly used in university settings?
 
 ```{r, Quiz1O, echo = FALSE}
-actionButton("refreshQ1", "Refresh")
+actionButton("refreshQ1", "Refresh", class = "btn-refresh-plot")
 plotOutput("Q1")
 ```
 
@@ -261,7 +261,7 @@ output$Q1 <- renderPlot({
 #### 2. What is the common goal of doing empirical work utilizing statistics in CSAI?
 
 ```{r, Quiz2O, echo = FALSE}
-actionButton("refreshQ2", "Refresh")
+actionButton("refreshQ2", "Refresh", class = "btn-refresh-plot")
 plotOutput("Q2")
 ```
 
@@ -311,7 +311,7 @@ output$Q2 <- renderPlot({
 #### 3. We use sample statistics to do which of the following regarding population parameters?
 
 ```{r, Quiz3O, echo = FALSE}
-actionButton("refreshQ3", "Refresh")
+actionButton("refreshQ3", "Refresh", class = "btn-refresh-plot")
 plotOutput("Q3")
 ```
 
@@ -360,7 +360,7 @@ question("As we increase the sample size, the sampling distribution of the mean 
 #### 4. As we increase the sample size, the sampling distribution of the mean becomes:
 
 ```{r, Quiz4O, echo = FALSE}
-actionButton("refreshQ4", "Refresh")
+actionButton("refreshQ4", "Refresh", class = "btn-refresh-plot")
 plotOutput("Q4")
 ```
 
@@ -409,7 +409,7 @@ output$Q4 <- renderPlot({
 #### 5. If I replicate a study 20 times, how many studies will have a mean not included in the 95% CI?
 
 ```{r, Quiz5O, echo = FALSE}
-actionButton("refreshQ5", "Refresh")
+actionButton("refreshQ5", "Refresh", class = "btn-refresh-plot")
 plotOutput("Q5")
 ```
 
